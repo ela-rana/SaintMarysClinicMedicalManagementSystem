@@ -69,6 +69,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.tblUserInfo.SuspendLayout();
             this.tblMoreInfo.SuspendLayout();
             this.tblPatientInfo.SuspendLayout();
@@ -77,13 +78,15 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(190, 450);
+            this.btnSignUp.BackColor = System.Drawing.Color.Orange;
+            this.btnSignUp.Location = new System.Drawing.Point(190, 461);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(5);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(133, 25);
             this.btnSignUp.TabIndex = 4;
             this.btnSignUp.Text = "Sign Up";
-            this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.UseVisualStyleBackColor = false;
+            this.btnSignUp.Visible = false;
             // 
             // txtbxUsername
             // 
@@ -173,7 +176,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblUserInfo.Controls.Add(this.comboBox1, 1, 4);
             this.tblUserInfo.Controls.Add(this.label8, 0, 3);
             this.tblUserInfo.Controls.Add(this.textBox2, 1, 3);
-            this.tblUserInfo.Location = new System.Drawing.Point(44, 20);
+            this.tblUserInfo.Location = new System.Drawing.Point(44, 31);
             this.tblUserInfo.Margin = new System.Windows.Forms.Padding(5);
             this.tblUserInfo.Name = "tblUserInfo";
             this.tblUserInfo.RowCount = 5;
@@ -189,7 +192,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(143, 107);
+            this.comboBox1.Location = new System.Drawing.Point(143, 108);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(321, 23);
             this.comboBox1.TabIndex = 19;
@@ -229,7 +232,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblMoreInfo.Controls.Add(this.label3, 0, 2);
             this.tblMoreInfo.Controls.Add(this.label4, 0, 1);
             this.tblMoreInfo.Controls.Add(this.label6, 0, 0);
-            this.tblMoreInfo.Location = new System.Drawing.Point(45, 180);
+            this.tblMoreInfo.Location = new System.Drawing.Point(45, 191);
             this.tblMoreInfo.Margin = new System.Windows.Forms.Padding(5);
             this.tblMoreInfo.Name = "tblMoreInfo";
             this.tblMoreInfo.RowCount = 5;
@@ -241,6 +244,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblMoreInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblMoreInfo.Size = new System.Drawing.Size(467, 132);
             this.tblMoreInfo.TabIndex = 6;
+            this.tblMoreInfo.Visible = false;
             // 
             // textBox7
             // 
@@ -345,13 +349,14 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(189, 158);
+            this.button1.BackColor = System.Drawing.Color.Orange;
+            this.button1.Location = new System.Drawing.Point(189, 169);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 27);
             this.button1.TabIndex = 7;
             this.button1.Text = "Create Account";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -359,18 +364,19 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Ink Free", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label9.Location = new System.Drawing.Point(42, 160);
+            this.label9.Location = new System.Drawing.Point(42, 171);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(157, 15);
             this.label9.TabIndex = 11;
             this.label9.Text = "Enter Additional Details:";
+            this.label9.Visible = false;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(472, 54);
+            this.label11.Location = new System.Drawing.Point(472, 65);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(32, 13);
             this.label11.TabIndex = 12;
@@ -380,7 +386,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(472, 80);
+            this.label12.Location = new System.Drawing.Point(472, 91);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(32, 13);
             this.label12.TabIndex = 13;
@@ -390,11 +396,12 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(472, 265);
+            this.label13.Location = new System.Drawing.Point(472, 276);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(32, 13);
             this.label13.TabIndex = 14;
             this.label13.Text = "View";
+            this.label13.Visible = false;
             // 
             // tblPatientInfo
             // 
@@ -407,7 +414,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblPatientInfo.Controls.Add(this.label16, 0, 0);
             this.tblPatientInfo.Controls.Add(this.label21, 0, 1);
             this.tblPatientInfo.Controls.Add(this.dateTimePicker2, 1, 1);
-            this.tblPatientInfo.Location = new System.Drawing.Point(45, 309);
+            this.tblPatientInfo.Location = new System.Drawing.Point(45, 320);
             this.tblPatientInfo.Margin = new System.Windows.Forms.Padding(5);
             this.tblPatientInfo.Name = "tblPatientInfo";
             this.tblPatientInfo.RowCount = 3;
@@ -417,6 +424,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblPatientInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblPatientInfo.Size = new System.Drawing.Size(467, 81);
             this.tblPatientInfo.TabIndex = 15;
+            this.tblPatientInfo.Visible = false;
             // 
             // textBox4
             // 
@@ -486,7 +494,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblEmployeeInfo.Controls.Add(this.label10, 0, 1);
             this.tblEmployeeInfo.Controls.Add(this.comboBox2, 1, 1);
             this.tblEmployeeInfo.Controls.Add(this.label19, 0, 0);
-            this.tblEmployeeInfo.Location = new System.Drawing.Point(45, 388);
+            this.tblEmployeeInfo.Location = new System.Drawing.Point(45, 399);
             this.tblEmployeeInfo.Margin = new System.Windows.Forms.Padding(5);
             this.tblEmployeeInfo.Name = "tblEmployeeInfo";
             this.tblEmployeeInfo.RowCount = 2;
@@ -497,6 +505,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblEmployeeInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblEmployeeInfo.Size = new System.Drawing.Size(467, 56);
             this.tblEmployeeInfo.TabIndex = 16;
+            this.tblEmployeeInfo.Visible = false;
             // 
             // comboBox3
             // 
@@ -538,11 +547,23 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.label19.TabIndex = 21;
             this.label19.Text = "Employee Type";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.Font = new System.Drawing.Font("Dubai", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(44, 26);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Back";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // UsrCtrlSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.tblEmployeeInfo);
             this.Controls.Add(this.tblPatientInfo);
             this.Controls.Add(this.label13);
@@ -611,5 +632,6 @@ namespace SaintMarysClinicMedicalManagementSystem
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button2;
     }
 }

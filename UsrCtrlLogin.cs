@@ -16,5 +16,24 @@ namespace SaintMarysClinicMedicalManagementSystem
         {
             InitializeComponent();
         }
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxUsername_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtbxPassword_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

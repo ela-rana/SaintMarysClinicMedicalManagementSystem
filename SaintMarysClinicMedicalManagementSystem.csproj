@@ -35,11 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="ProgressBar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ProgressBar.1.0.10\lib\ProgressBar.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,11 +60,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointment.cs">
+      <DependentUpon>MMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD.cs" />
+    <Compile Include="Employee.cs">
+      <DependentUpon>MMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MMSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MMSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MMSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MMSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MMSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MMSUser.cs">
+      <DependentUpon>MMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <DependentUpon>MMSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,11 +114,11 @@
     <Compile Include="UsrCtrlSignUp.Designer.cs">
       <DependentUpon>UsrCtrlSignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsrCtrlSplashMenu.cs">
+    <Compile Include="UsrCtrlHomeMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UsrCtrlSplashMenu.Designer.cs">
-      <DependentUpon>UsrCtrlSplashMenu.cs</DependentUpon>
+    <Compile Include="UsrCtrlHomeMenu.Designer.cs">
+      <DependentUpon>UsrCtrlHomeMenu.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
@@ -105,9 +142,16 @@
     <EmbeddedResource Include="UsrCtrlSignUp.resx">
       <DependentUpon>UsrCtrlSignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsrCtrlSplashMenu.resx">
-      <DependentUpon>UsrCtrlSplashMenu.cs</DependentUpon>
+    <EmbeddedResource Include="UsrCtrlHomeMenu.resx">
+      <DependentUpon>UsrCtrlHomeMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="MMSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MMSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MMSModel.edmx.diagram">
+      <DependentUpon>MMSModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -124,6 +168,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MMSBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MMSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MMSModel.Context.cs</LastGenOutput>
+      <DependentUpon>MMSModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="MMSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MMSModel.edmx</DependentUpon>
+      <LastGenOutput>MMSModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\MMSBackgroundClipped.jpg" />
+    <None Include="Resources\MMSBackgroundWhiteVersion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
