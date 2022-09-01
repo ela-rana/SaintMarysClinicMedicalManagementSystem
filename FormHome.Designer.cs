@@ -53,6 +53,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHome";
             this.Text = "Saint Mary\'s Clinic - Home";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormHome_FormClosing);
             this.Load += new System.EventHandler(this.FormHome_Load);
             this.ResumeLayout(false);
 

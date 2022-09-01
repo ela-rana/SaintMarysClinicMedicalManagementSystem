@@ -52,5 +52,10 @@ namespace SaintMarysClinicMedicalManagementSystem
             pnlHome.Controls.Add(ucHome); //in our Home Panel, display the Home menu user control when
                                           //the form loads
         }
+
+        private void FormHome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

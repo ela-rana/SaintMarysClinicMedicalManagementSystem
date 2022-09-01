@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace SaintMarysClinicMedicalManagementSystem
 {
-    public partial class UsrCtrlPatientPortal : UserControl
+    public partial class FormAdminPortal : Form
     {
-        public UsrCtrlPatientPortal()
+        public FormAdminPortal()
         {
             InitializeComponent();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            FormHome f = new FormHome();
+            f.Show();
+            this.Hide();
         }
     }
 }

@@ -29,7 +29,17 @@ namespace SaintMarysClinicMedicalManagementSystem
         /// <param name="email">the string to represent the email you want to check</param>
         /// <param name="password">the string to represent the password you want to check</param>
         /// <returns>returns UserType for the email and password matched account or null if it doesn't match</returns>
-        Nullable<UserTypes> ValidLogin(string email, string password); //to check if the email and password are for the same account
+        Nullable<UserTypes> ValidLogin(string email, string password);
+
+        void AddNewPatient(MMSUser user, Patient patient);
+
+        void AddNewEmployee(MMSUser user, Employee employee);
+
+        MMSUser GetPatient(string email, out Patient patient);
+
+        void UpdatePatient(MMSUser user, Patient patient);
+
+        int MaxUserID();
     }
 
     /// <summary>
@@ -46,6 +56,20 @@ namespace SaintMarysClinicMedicalManagementSystem
             DB = new MMSEntities(); //initialize our database representing object
         }
 
+        public void AddNewEmployee(MMSUser user, Employee employee)
+        {
+            DB.MMSUsers.Add(user);
+            DB.Employees.Add(employee);
+            DB.SaveChanges();
+        }
+
+        public void AddNewPatient(MMSUser user, Patient patient)
+        {
+            DB.MMSUsers.Add(user);
+            DB.Patients.Add(patient);
+            DB.SaveChanges();
+        }
+
         public bool emailAlreadyExists(string email)
         {
             bool found = false; //to set a default value of whether email was found in the database as false
@@ -60,6 +84,39 @@ namespace SaintMarysClinicMedicalManagementSystem
             }
             return found; //return whether email matched the records or not. if it didn't then found will retain its default 
                             //false value and return it
+        }
+
+        public MMSUser GetPatient(string email, out Patient patient)
+        {
+            MMSUser currentUser = null;
+            patient = null;
+            List<MMSUser> allUsers = DB.MMSUsers.ToList();  //to create a list to hold all User records
+            foreach (MMSUser user in allUsers)   //go through each record in the User table
+            {
+                if (user.Email == email) //if the passed email matches the table record's email
+                {
+                    currentUser = user;
+                    patient = DB.Patients.Find(user.UserID); //return the Patient record for that email
+                    break;  //break out of the foreach loop. We don't need to search anymore since we already found a match
+                }
+            }
+            return currentUser; //return the User record for that email
+        }
+
+        public int MaxUserID()
+        {
+            return DB.MMSUsers.Max(x => x.UserID);
+        }
+
+        public void UpdatePatient(MMSUser user, Patient patient)
+        {
+            MMSUser userToUpdate = DB.MMSUsers.Find(user.UserID);
+            Patient patientToUpdate = DB.Patients.Find(user.UserID);
+            userToUpdate.FirstName = user.FirstName;
+            userToUpdate.MiddleName = user.MiddleName;
+            userToUpdate.LastName = user.LastName;
+            userToUpdate.
+            DB.SaveChanges();
         }
 
         public Nullable<UserTypes> ValidLogin(string email, string password)

@@ -30,12 +30,20 @@ namespace SaintMarysClinicMedicalManagementSystem
                     switch((int)type)
                     {
                         case 1:
+                            FormPatientPortal formPatientPortal = new FormPatientPortal();
+                            formPatientPortal.CurrentLoggedInEmail = txtbxEmail.Text;
+                            formPatientPortal.Show();
                             break;
                         case 2:
+                            FormMedStaffPortal formMedStaffPortal = new FormMedStaffPortal();
+                            formMedStaffPortal.Show();
                             break;
                         case 3:
+                            FormAdminPortal formAdminPortal = new FormAdminPortal();
+                            formAdminPortal.Show();
                             break;
                     }
+                    this.ParentForm.Hide();
                 }
                 else
                 {
@@ -65,7 +73,12 @@ namespace SaintMarysClinicMedicalManagementSystem
             txtbxPassword.Clear();
         }
 
-        private void txtbxUsername_Validating(object sender, CancelEventArgs e)
+        /// <summary>
+        /// To ensure a valid value is entered in the Email textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtbxEmail_Validating(object sender, CancelEventArgs e)
         {
             if (txtbxEmail.TextLength != 0 && txtbxEmail.TextLength < 7 || txtbxEmail.TextLength > 50)
             {
@@ -90,6 +103,11 @@ namespace SaintMarysClinicMedicalManagementSystem
             lblErrorLogin.Text = errorMessage;  //displays the error message in the label
         }
 
+        /// <summary>
+        /// To ensure a valid value is entered in the Password textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtbxPassword_Validating(object sender, CancelEventArgs e)
         {
             if (txtbxPassword.TextLength!=0 && txtbxPassword.TextLength < 3 || txtbxPassword.TextLength > 50)

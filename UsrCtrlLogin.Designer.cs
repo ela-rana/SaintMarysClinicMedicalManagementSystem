@@ -95,21 +95,23 @@ namespace SaintMarysClinicMedicalManagementSystem
             // txtbxEmail
             // 
             this.txtbxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbxEmail.Location = new System.Drawing.Point(83, 17);
+            this.txtbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtbxEmail.Location = new System.Drawing.Point(83, 18);
             this.txtbxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxEmail.Name = "txtbxEmail";
-            this.txtbxEmail.Size = new System.Drawing.Size(272, 24);
+            this.txtbxEmail.Size = new System.Drawing.Size(272, 22);
             this.txtbxEmail.TabIndex = 2;
-            this.txtbxEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxUsername_Validating);
+            this.txtbxEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxEmail_Validating);
             // 
             // txtbxPassword
             // 
             this.txtbxPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtbxPassword.Location = new System.Drawing.Point(83, 75);
+            this.txtbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtbxPassword.Location = new System.Drawing.Point(83, 76);
             this.txtbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxPassword.Name = "txtbxPassword";
             this.txtbxPassword.PasswordChar = '*';
-            this.txtbxPassword.Size = new System.Drawing.Size(226, 24);
+            this.txtbxPassword.Size = new System.Drawing.Size(226, 22);
             this.txtbxPassword.TabIndex = 3;
             this.txtbxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxPassword_Validating);
             // 

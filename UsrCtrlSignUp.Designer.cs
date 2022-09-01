@@ -30,10 +30,8 @@ namespace SaintMarysClinicMedicalManagementSystem
         private void InitializeComponent()
         {
             this.btnSignUp = new System.Windows.Forms.Button();
-            this.txtbxUserID = new System.Windows.Forms.TextBox();
             this.txtbxPassword = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.lblUserID = new System.Windows.Forms.Label();
             this.lblReenterPassword = new System.Windows.Forms.Label();
             this.lblUserType = new System.Windows.Forms.Label();
             this.txtbxReenterPassword = new System.Windows.Forms.TextBox();
@@ -67,6 +65,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.btnBack = new System.Windows.Forms.Button();
             this.btnViewPassword = new System.Windows.Forms.Button();
             this.btnViewSSN = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
             this.tblUserInfo.SuspendLayout();
             this.tblMoreInfo.SuspendLayout();
             this.tblPatientInfo.SuspendLayout();
@@ -76,62 +75,45 @@ namespace SaintMarysClinicMedicalManagementSystem
             // btnSignUp
             // 
             this.btnSignUp.BackColor = System.Drawing.Color.Orange;
-            this.btnSignUp.Location = new System.Drawing.Point(205, 432);
+            this.btnSignUp.Location = new System.Drawing.Point(205, 431);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(5);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(133, 25);
-            this.btnSignUp.TabIndex = 4;
+            this.btnSignUp.TabIndex = 34;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = false;
             this.btnSignUp.Visible = false;
-            // 
-            // txtbxUserID
-            // 
-            this.txtbxUserID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbxUserID.Location = new System.Drawing.Point(179, 5);
-            this.txtbxUserID.Margin = new System.Windows.Forms.Padding(5);
-            this.txtbxUserID.Name = "txtbxUserID";
-            this.txtbxUserID.ReadOnly = true;
-            this.txtbxUserID.Size = new System.Drawing.Size(283, 22);
-            this.txtbxUserID.TabIndex = 2;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // txtbxPassword
             // 
             this.txtbxPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtbxPassword.Location = new System.Drawing.Point(179, 31);
+            this.txtbxPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxPassword.Location = new System.Drawing.Point(179, 32);
             this.txtbxPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txtbxPassword.Name = "txtbxPassword";
             this.txtbxPassword.PasswordChar = '*';
-            this.txtbxPassword.Size = new System.Drawing.Size(275, 22);
-            this.txtbxPassword.TabIndex = 3;
+            this.txtbxPassword.Size = new System.Drawing.Size(241, 23);
+            this.txtbxPassword.TabIndex = 21;
+            this.txtbxPassword.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
+            this.txtbxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxPassword_Validating);
             // 
             // lblPassword
             // 
             this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(5, 31);
+            this.lblPassword.Location = new System.Drawing.Point(5, 33);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(63, 15);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password";
             // 
-            // lblUserID
-            // 
-            this.lblUserID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblUserID.AutoSize = true;
-            this.lblUserID.Location = new System.Drawing.Point(5, 5);
-            this.lblUserID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(164, 15);
-            this.lblUserID.TabIndex = 0;
-            this.lblUserID.Text = "UserID (auto-generated)";
-            // 
             // lblReenterPassword
             // 
             this.lblReenterPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblReenterPassword.AutoSize = true;
-            this.lblReenterPassword.Location = new System.Drawing.Point(5, 57);
+            this.lblReenterPassword.Location = new System.Drawing.Point(5, 60);
             this.lblReenterPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblReenterPassword.Name = "lblReenterPassword";
             this.lblReenterPassword.Size = new System.Drawing.Size(116, 15);
@@ -142,7 +124,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.lblUserType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblUserType.AutoSize = true;
-            this.lblUserType.Location = new System.Drawing.Point(5, 111);
+            this.lblUserType.Location = new System.Drawing.Point(5, 88);
             this.lblUserType.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUserType.Name = "lblUserType";
             this.lblUserType.Size = new System.Drawing.Size(68, 15);
@@ -152,12 +134,15 @@ namespace SaintMarysClinicMedicalManagementSystem
             // txtbxReenterPassword
             // 
             this.txtbxReenterPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtbxReenterPassword.Location = new System.Drawing.Point(179, 57);
+            this.txtbxReenterPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxReenterPassword.Location = new System.Drawing.Point(179, 59);
             this.txtbxReenterPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txtbxReenterPassword.Name = "txtbxReenterPassword";
             this.txtbxReenterPassword.PasswordChar = '*';
-            this.txtbxReenterPassword.Size = new System.Drawing.Size(275, 22);
-            this.txtbxReenterPassword.TabIndex = 6;
+            this.txtbxReenterPassword.Size = new System.Drawing.Size(241, 23);
+            this.txtbxReenterPassword.TabIndex = 22;
+            this.txtbxReenterPassword.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
+            this.txtbxReenterPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxReenterPassword_Validating);
             // 
             // tblUserInfo
             // 
@@ -165,42 +150,41 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblUserInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.2591F));
             this.tblUserInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.7409F));
             this.tblUserInfo.Controls.Add(this.txtbxReenterPassword, 1, 2);
-            this.tblUserInfo.Controls.Add(this.lblUserType, 0, 4);
+            this.tblUserInfo.Controls.Add(this.lblUserType, 0, 3);
             this.tblUserInfo.Controls.Add(this.lblReenterPassword, 0, 2);
-            this.tblUserInfo.Controls.Add(this.lblUserID, 0, 0);
             this.tblUserInfo.Controls.Add(this.lblPassword, 0, 1);
             this.tblUserInfo.Controls.Add(this.txtbxPassword, 1, 1);
-            this.tblUserInfo.Controls.Add(this.txtbxUserID, 1, 0);
-            this.tblUserInfo.Controls.Add(this.cmbxUserType, 1, 4);
-            this.tblUserInfo.Controls.Add(this.lblEmail, 0, 3);
-            this.tblUserInfo.Controls.Add(this.txtbxEmail, 1, 3);
-            this.tblUserInfo.Location = new System.Drawing.Point(44, 31);
+            this.tblUserInfo.Controls.Add(this.cmbxUserType, 1, 3);
+            this.tblUserInfo.Controls.Add(this.lblEmail, 0, 0);
+            this.tblUserInfo.Controls.Add(this.txtbxEmail, 1, 0);
+            this.tblUserInfo.Location = new System.Drawing.Point(44, 35);
             this.tblUserInfo.Margin = new System.Windows.Forms.Padding(5);
             this.tblUserInfo.Name = "tblUserInfo";
-            this.tblUserInfo.RowCount = 5;
-            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblUserInfo.Size = new System.Drawing.Size(467, 133);
+            this.tblUserInfo.RowCount = 4;
+            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblUserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblUserInfo.Size = new System.Drawing.Size(467, 110);
             this.tblUserInfo.TabIndex = 5;
             // 
             // cmbxUserType
             // 
             this.cmbxUserType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbxUserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxUserType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxUserType.FormattingEnabled = true;
-            this.cmbxUserType.Location = new System.Drawing.Point(177, 107);
+            this.cmbxUserType.Location = new System.Drawing.Point(177, 84);
             this.cmbxUserType.Name = "cmbxUserType";
             this.cmbxUserType.Size = new System.Drawing.Size(287, 23);
-            this.cmbxUserType.TabIndex = 19;
+            this.cmbxUserType.TabIndex = 23;
             // 
             // lblEmail
             // 
             this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(5, 83);
+            this.lblEmail.Location = new System.Drawing.Point(5, 6);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(39, 15);
@@ -210,11 +194,14 @@ namespace SaintMarysClinicMedicalManagementSystem
             // txtbxEmail
             // 
             this.txtbxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbxEmail.Location = new System.Drawing.Point(179, 83);
+            this.txtbxEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxEmail.Location = new System.Drawing.Point(179, 5);
             this.txtbxEmail.Margin = new System.Windows.Forms.Padding(5);
             this.txtbxEmail.Name = "txtbxEmail";
-            this.txtbxEmail.Size = new System.Drawing.Size(283, 22);
+            this.txtbxEmail.Size = new System.Drawing.Size(283, 23);
             this.txtbxEmail.TabIndex = 20;
+            this.txtbxEmail.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
+            this.txtbxEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxEmail_Validating);
             // 
             // tblMoreInfo
             // 
@@ -231,7 +218,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblMoreInfo.Controls.Add(this.lblLastName, 0, 2);
             this.tblMoreInfo.Controls.Add(this.lblMiddleName, 0, 1);
             this.tblMoreInfo.Controls.Add(this.lblFirstName, 0, 0);
-            this.tblMoreInfo.Location = new System.Drawing.Point(45, 191);
+            this.tblMoreInfo.Location = new System.Drawing.Point(45, 190);
             this.tblMoreInfo.Margin = new System.Windows.Forms.Padding(5);
             this.tblMoreInfo.Name = "tblMoreInfo";
             this.tblMoreInfo.RowCount = 5;
@@ -248,48 +235,58 @@ namespace SaintMarysClinicMedicalManagementSystem
             // txtbxPhone
             // 
             this.txtbxPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxPhone.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxPhone.Location = new System.Drawing.Point(145, 109);
             this.txtbxPhone.Margin = new System.Windows.Forms.Padding(5);
             this.txtbxPhone.Name = "txtbxPhone";
-            this.txtbxPhone.Size = new System.Drawing.Size(317, 22);
-            this.txtbxPhone.TabIndex = 22;
+            this.txtbxPhone.Size = new System.Drawing.Size(317, 23);
+            this.txtbxPhone.TabIndex = 29;
+            this.txtbxPhone.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
             // 
             // txtbxSSN
             // 
             this.txtbxSSN.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtbxSSN.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxSSN.Location = new System.Drawing.Point(145, 83);
             this.txtbxSSN.Margin = new System.Windows.Forms.Padding(5);
             this.txtbxSSN.Name = "txtbxSSN";
             this.txtbxSSN.PasswordChar = '*';
-            this.txtbxSSN.Size = new System.Drawing.Size(274, 22);
-            this.txtbxSSN.TabIndex = 21;
+            this.txtbxSSN.Size = new System.Drawing.Size(274, 23);
+            this.txtbxSSN.TabIndex = 28;
+            this.txtbxSSN.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
             // 
             // txtbxLastName
             // 
             this.txtbxLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxLastName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxLastName.Location = new System.Drawing.Point(145, 57);
             this.txtbxLastName.Margin = new System.Windows.Forms.Padding(5);
             this.txtbxLastName.Name = "txtbxLastName";
-            this.txtbxLastName.Size = new System.Drawing.Size(317, 22);
-            this.txtbxLastName.TabIndex = 20;
+            this.txtbxLastName.Size = new System.Drawing.Size(317, 23);
+            this.txtbxLastName.TabIndex = 27;
+            this.txtbxLastName.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
             // 
             // txtbxMiddleName
             // 
             this.txtbxMiddleName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxMiddleName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxMiddleName.Location = new System.Drawing.Point(145, 31);
             this.txtbxMiddleName.Margin = new System.Windows.Forms.Padding(5);
             this.txtbxMiddleName.Name = "txtbxMiddleName";
-            this.txtbxMiddleName.Size = new System.Drawing.Size(317, 22);
-            this.txtbxMiddleName.TabIndex = 19;
+            this.txtbxMiddleName.Size = new System.Drawing.Size(317, 23);
+            this.txtbxMiddleName.TabIndex = 26;
+            this.txtbxMiddleName.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
             // 
             // txtbxFirstName
             // 
             this.txtbxFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxFirstName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxFirstName.Location = new System.Drawing.Point(145, 5);
             this.txtbxFirstName.Margin = new System.Windows.Forms.Padding(5);
             this.txtbxFirstName.Name = "txtbxFirstName";
-            this.txtbxFirstName.Size = new System.Drawing.Size(317, 22);
-            this.txtbxFirstName.TabIndex = 18;
+            this.txtbxFirstName.Size = new System.Drawing.Size(317, 23);
+            this.txtbxFirstName.TabIndex = 25;
+            this.txtbxFirstName.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
             // 
             // lblPhone
             // 
@@ -349,11 +346,11 @@ namespace SaintMarysClinicMedicalManagementSystem
             // btnCreateAccount
             // 
             this.btnCreateAccount.BackColor = System.Drawing.Color.Orange;
-            this.btnCreateAccount.Location = new System.Drawing.Point(204, 166);
+            this.btnCreateAccount.Location = new System.Drawing.Point(204, 149);
             this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(5);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(133, 27);
-            this.btnCreateAccount.TabIndex = 7;
+            this.btnCreateAccount.TabIndex = 24;
             this.btnCreateAccount.Text = "Create Account";
             this.btnCreateAccount.UseVisualStyleBackColor = false;
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
@@ -364,7 +361,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.lblEnterDetails.AutoSize = true;
             this.lblEnterDetails.Font = new System.Drawing.Font("Ink Free", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnterDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblEnterDetails.Location = new System.Drawing.Point(42, 171);
+            this.lblEnterDetails.Location = new System.Drawing.Point(42, 169);
             this.lblEnterDetails.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblEnterDetails.Name = "lblEnterDetails";
             this.lblEnterDetails.Size = new System.Drawing.Size(157, 15);
@@ -381,7 +378,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblPatientInfo.Controls.Add(this.lblAddress, 0, 0);
             this.tblPatientInfo.Controls.Add(this.lblDOB, 0, 1);
             this.tblPatientInfo.Controls.Add(this.dttmDOB, 1, 1);
-            this.tblPatientInfo.Location = new System.Drawing.Point(45, 320);
+            this.tblPatientInfo.Location = new System.Drawing.Point(45, 319);
             this.tblPatientInfo.Margin = new System.Windows.Forms.Padding(5);
             this.tblPatientInfo.Name = "tblPatientInfo";
             this.tblPatientInfo.RowCount = 2;
@@ -395,11 +392,13 @@ namespace SaintMarysClinicMedicalManagementSystem
             // txtbxAddress
             // 
             this.txtbxAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxAddress.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxAddress.Location = new System.Drawing.Point(145, 5);
             this.txtbxAddress.Margin = new System.Windows.Forms.Padding(5);
             this.txtbxAddress.Name = "txtbxAddress";
-            this.txtbxAddress.Size = new System.Drawing.Size(317, 22);
-            this.txtbxAddress.TabIndex = 22;
+            this.txtbxAddress.Size = new System.Drawing.Size(317, 23);
+            this.txtbxAddress.TabIndex = 30;
+            this.txtbxAddress.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
             // 
             // lblAddress
             // 
@@ -426,10 +425,11 @@ namespace SaintMarysClinicMedicalManagementSystem
             // dttmDOB
             // 
             this.dttmDOB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dttmDOB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dttmDOB.Location = new System.Drawing.Point(143, 29);
             this.dttmDOB.Name = "dttmDOB";
-            this.dttmDOB.Size = new System.Drawing.Size(321, 22);
-            this.dttmDOB.TabIndex = 24;
+            this.dttmDOB.Size = new System.Drawing.Size(321, 23);
+            this.dttmDOB.TabIndex = 31;
             // 
             // tblEmployeeInfo
             // 
@@ -440,7 +440,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tblEmployeeInfo.Controls.Add(this.lblSpecialty, 0, 1);
             this.tblEmployeeInfo.Controls.Add(this.cmbxSpecialty, 1, 1);
             this.tblEmployeeInfo.Controls.Add(this.lblEmpType, 0, 0);
-            this.tblEmployeeInfo.Location = new System.Drawing.Point(45, 371);
+            this.tblEmployeeInfo.Location = new System.Drawing.Point(45, 370);
             this.tblEmployeeInfo.Margin = new System.Windows.Forms.Padding(5);
             this.tblEmployeeInfo.Name = "tblEmployeeInfo";
             this.tblEmployeeInfo.RowCount = 2;
@@ -457,11 +457,12 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.cmbxEmpType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbxEmpType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxEmpType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxEmpType.FormattingEnabled = true;
             this.cmbxEmpType.Location = new System.Drawing.Point(143, 3);
             this.cmbxEmpType.Name = "cmbxEmpType";
             this.cmbxEmpType.Size = new System.Drawing.Size(321, 23);
-            this.cmbxEmpType.TabIndex = 20;
+            this.cmbxEmpType.TabIndex = 32;
             // 
             // lblSpecialty
             // 
@@ -477,11 +478,12 @@ namespace SaintMarysClinicMedicalManagementSystem
             // cmbxSpecialty
             // 
             this.cmbxSpecialty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbxSpecialty.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxSpecialty.FormattingEnabled = true;
             this.cmbxSpecialty.Location = new System.Drawing.Point(143, 31);
             this.cmbxSpecialty.Name = "cmbxSpecialty";
             this.cmbxSpecialty.Size = new System.Drawing.Size(321, 23);
-            this.cmbxSpecialty.TabIndex = 19;
+            this.cmbxSpecialty.TabIndex = 33;
             // 
             // lblEmpType
             // 
@@ -510,11 +512,11 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.btnViewPassword.BackColor = System.Drawing.Color.Orange;
             this.btnViewPassword.Font = new System.Drawing.Font("Dubai", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewPassword.Location = new System.Drawing.Point(467, 60);
+            this.btnViewPassword.Location = new System.Drawing.Point(467, 64);
             this.btnViewPassword.Margin = new System.Windows.Forms.Padding(0);
             this.btnViewPassword.Name = "btnViewPassword";
             this.btnViewPassword.Size = new System.Drawing.Size(43, 50);
-            this.btnViewPassword.TabIndex = 18;
+            this.btnViewPassword.TabIndex = 19;
             this.btnViewPassword.Text = "View";
             this.btnViewPassword.UseVisualStyleBackColor = false;
             this.btnViewPassword.Click += new System.EventHandler(this.btnViewPassword_Click);
@@ -523,7 +525,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.btnViewSSN.BackColor = System.Drawing.Color.Orange;
             this.btnViewSSN.Font = new System.Drawing.Font("Dubai", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewSSN.Location = new System.Drawing.Point(468, 272);
+            this.btnViewSSN.Location = new System.Drawing.Point(468, 271);
             this.btnViewSSN.Margin = new System.Windows.Forms.Padding(0);
             this.btnViewSSN.Name = "btnViewSSN";
             this.btnViewSSN.Size = new System.Drawing.Size(43, 24);
@@ -533,11 +535,24 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.btnViewSSN.Visible = false;
             this.btnViewSSN.Click += new System.EventHandler(this.btnViewSSN_Click);
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Bold);
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(44, 460);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(133, 17);
+            this.lblError.TabIndex = 20;
+            this.lblError.Text = "Error Messages:";
+            this.lblError.Visible = false;
+            // 
             // UsrCtrlSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnViewSSN);
             this.Controls.Add(this.btnViewPassword);
             this.Controls.Add(this.btnBack);
@@ -568,10 +583,8 @@ namespace SaintMarysClinicMedicalManagementSystem
 
         #endregion
         private System.Windows.Forms.Button btnSignUp;
-        private System.Windows.Forms.TextBox txtbxUserID;
         private System.Windows.Forms.TextBox txtbxPassword;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.Label lblReenterPassword;
         private System.Windows.Forms.Label lblUserType;
         private System.Windows.Forms.TextBox txtbxReenterPassword;
@@ -605,5 +618,6 @@ namespace SaintMarysClinicMedicalManagementSystem
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnViewPassword;
         private System.Windows.Forms.Button btnViewSSN;
+        private System.Windows.Forms.Label lblError;
     }
 }

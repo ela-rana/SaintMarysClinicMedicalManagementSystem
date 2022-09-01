@@ -83,11 +83,29 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Enums.cs" />
+    <Compile Include="FormAdminPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminPortal.Designer.cs">
+      <DependentUpon>FormAdminPortal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMedStaffPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedStaffPortal.Designer.cs">
+      <DependentUpon>FormMedStaffPortal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPatientPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPatientPortal.Designer.cs">
+      <DependentUpon>FormPatientPortal.cs</DependentUpon>
     </Compile>
     <Compile Include="MMSUser.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
@@ -109,12 +127,6 @@
     <Compile Include="UsrCtrlLogin.Designer.cs">
       <DependentUpon>UsrCtrlLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsrCtrlPatientPortal.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UsrCtrlPatientPortal.Designer.cs">
-      <DependentUpon>UsrCtrlPatientPortal.cs</DependentUpon>
-    </Compile>
     <Compile Include="UsrCtrlSignUp.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,8 +139,17 @@
     <Compile Include="UsrCtrlHomeMenu.Designer.cs">
       <DependentUpon>UsrCtrlHomeMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormAdminPortal.resx">
+      <DependentUpon>FormAdminPortal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedStaffPortal.resx">
+      <DependentUpon>FormMedStaffPortal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientPortal.resx">
+      <DependentUpon>FormPatientPortal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -145,9 +166,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsrCtrlLogin.resx">
       <DependentUpon>UsrCtrlLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UsrCtrlPatientPortal.resx">
-      <DependentUpon>UsrCtrlPatientPortal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsrCtrlSignUp.resx">
       <DependentUpon>UsrCtrlSignUp.cs</DependentUpon>
