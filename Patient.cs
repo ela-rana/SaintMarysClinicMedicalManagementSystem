@@ -14,25 +14,12 @@ namespace SaintMarysClinicMedicalManagementSystem
     
     public partial class Patient
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Patient()
-        {
-            this.Appointments = new HashSet<Appointment>();
-            this.Appointments1 = new HashSet<Appointment>();
-        }
+        public int UserID { get; set; }
+        public System.DateTime DOB { get; set; }
+        public string Address { get; set; }
+        public int PCMUserID { get; set; }
     
-        public int PatientID { get; set; }
-        public string SSN { get; set; }
-        public string MailingAddress { get; set; }
-        public System.DateTime DateOfBirth { get; set; }
-        public string Allergies { get; set; }
-        public int PCMID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appointment> Appointments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appointment> Appointments1 { get; set; }
-        public virtual Employee Employee { get; set; }
-        public virtual Employee Employee1 { get; set; }
+        public virtual MMSUser MMSUser { get; set; }
+        public virtual MMSUser MMSUser1 { get; set; }
     }
 }

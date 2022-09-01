@@ -14,7 +14,15 @@ namespace SaintMarysClinicMedicalManagementSystem
     
     public partial class MMSUser
     {
-        public string Username { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MMSUser()
+        {
+            this.Appointments = new HashSet<Appointment>();
+            this.Appointments1 = new HashSet<Appointment>();
+            this.Patients = new HashSet<Patient>();
+        }
+    
+        public int UserID { get; set; }
         public string Passwrd { get; set; }
         public string SSN { get; set; }
         public string FirstName { get; set; }
@@ -23,5 +31,14 @@ namespace SaintMarysClinicMedicalManagementSystem
         public string Phone { get; set; }
         public string Email { get; set; }
         public int UserType { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Appointment> Appointments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Appointment> Appointments1 { get; set; }
+        public virtual Employee Employee { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Patient> Patients { get; set; }
+        public virtual Patient Patient { get; set; }
     }
 }

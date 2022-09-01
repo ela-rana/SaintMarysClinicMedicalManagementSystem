@@ -21,8 +21,8 @@ namespace SaintMarysClinicMedicalManagementSystem
         {
             if (!FormHome.Instance.HomePanel.Controls.ContainsKey("UsrCtrlLogin"))
             {
-                UsrCtrlLogin ucLogin = new UsrCtrlLogin();
-                FormHome.Instance.HomePanel.Controls.Add(ucLogin);
+                UsrCtrlLogin uc = new UsrCtrlLogin();
+                FormHome.Instance.HomePanel.Controls.Add(uc);
             }
             FormHome.Instance.HomePanel.Controls["UsrCtrlLogin"].BringToFront();
         }
@@ -31,8 +31,8 @@ namespace SaintMarysClinicMedicalManagementSystem
         {
             if (!FormHome.Instance.HomePanel.Controls.ContainsKey("UsrCtrlSignUp"))
             {
-                UsrCtrlSignUp ucSignUp = new UsrCtrlSignUp();
-                FormHome.Instance.HomePanel.Controls.Add(ucSignUp);
+                UsrCtrlSignUp uc = new UsrCtrlSignUp();
+                FormHome.Instance.HomePanel.Controls.Add(uc);
             }
             FormHome.Instance.HomePanel.Controls["UsrCtrlSignUp"].BringToFront();
         }

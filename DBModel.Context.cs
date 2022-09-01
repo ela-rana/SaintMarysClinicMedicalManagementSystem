@@ -13,10 +13,10 @@ namespace SaintMarysClinicMedicalManagementSystem
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MedicalManagementSystemEntities : DbContext
+    public partial class MMSEntities : DbContext
     {
-        public MedicalManagementSystemEntities()
-            : base("name=MedicalManagementSystemEntities")
+        public MMSEntities()
+            : base("name=MMSEntities")
         {
         }
     

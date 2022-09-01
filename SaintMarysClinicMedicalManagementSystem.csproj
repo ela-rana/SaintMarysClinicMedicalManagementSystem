@@ -61,38 +61,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointment.cs">
-      <DependentUpon>MMSModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CRUD.cs" />
-    <Compile Include="Employee.cs">
-      <DependentUpon>MMSModel.tt</DependentUpon>
+    <Compile Include="DBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums.cs" />
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="MMSModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MMSModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MMSModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MMSModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MMSModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MMSModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MMSUser.cs">
-      <DependentUpon>MMSModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Patient.cs">
-      <DependentUpon>MMSModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +108,12 @@
     </Compile>
     <Compile Include="UsrCtrlLogin.Designer.cs">
       <DependentUpon>UsrCtrlLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsrCtrlPatientPortal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsrCtrlPatientPortal.Designer.cs">
+      <DependentUpon>UsrCtrlPatientPortal.cs</DependentUpon>
     </Compile>
     <Compile Include="UsrCtrlSignUp.cs">
       <SubType>UserControl</SubType>
@@ -139,18 +146,21 @@
     <EmbeddedResource Include="UsrCtrlLogin.resx">
       <DependentUpon>UsrCtrlLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UsrCtrlPatientPortal.resx">
+      <DependentUpon>UsrCtrlPatientPortal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsrCtrlSignUp.resx">
       <DependentUpon>UsrCtrlSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsrCtrlHomeMenu.resx">
       <DependentUpon>UsrCtrlHomeMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="MMSModel.edmx">
+    <EntityDeploy Include="DBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MMSModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MMSModel.edmx.diagram">
-      <DependentUpon>MMSModel.edmx</DependentUpon>
+    <None Include="DBModel.edmx.diagram">
+      <DependentUpon>DBModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -170,21 +180,23 @@
     <None Include="Resources\MMSBackground.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MMSModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MMSModel.Context.cs</LastGenOutput>
-      <DependentUpon>MMSModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="MMSModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MMSModel.edmx</DependentUpon>
-      <LastGenOutput>MMSModel.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\MMSBackgroundClipped.jpg" />
     <None Include="Resources\MMSBackgroundWhiteVersion.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

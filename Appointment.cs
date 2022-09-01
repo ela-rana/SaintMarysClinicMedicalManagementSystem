@@ -20,12 +20,10 @@ namespace SaintMarysClinicMedicalManagementSystem
         public int Duration { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
-        public int PCMID { get; set; }
-        public int PatientID { get; set; }
+        public int PatientUserID { get; set; }
+        public int ProviderUserID { get; set; }
     
-        public virtual Patient Patient { get; set; }
-        public virtual Patient Patient1 { get; set; }
-        public virtual Employee Employee { get; set; }
-        public virtual Employee Employee1 { get; set; }
+        public virtual MMSUser MMSUser { get; set; }
+        public virtual MMSUser MMSUser1 { get; set; }
     }
 }
