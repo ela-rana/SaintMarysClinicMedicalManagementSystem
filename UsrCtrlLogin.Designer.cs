@@ -101,6 +101,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxEmail.Name = "txtbxEmail";
             this.txtbxEmail.Size = new System.Drawing.Size(272, 22);
             this.txtbxEmail.TabIndex = 2;
+            this.txtbxEmail.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
             this.txtbxEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxEmail_Validating);
             // 
             // txtbxPassword
@@ -113,6 +114,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxPassword.PasswordChar = '*';
             this.txtbxPassword.Size = new System.Drawing.Size(226, 22);
             this.txtbxPassword.TabIndex = 3;
+            this.txtbxPassword.TextChanged += new System.EventHandler(this.AnyField_TextChanged);
             this.txtbxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxPassword_Validating);
             // 
             // btnBack

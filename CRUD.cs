@@ -31,6 +31,11 @@ namespace SaintMarysClinicMedicalManagementSystem
         /// <returns>returns UserType for the email and password matched account or null if it doesn't match</returns>
         Nullable<UserTypes> ValidLogin(string email, string password);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="patient"></param>
         void AddNewPatient(MMSUser user, Patient patient);
 
         void AddNewEmployee(MMSUser user, Employee employee);
@@ -40,6 +45,10 @@ namespace SaintMarysClinicMedicalManagementSystem
         void UpdatePatient(MMSUser user, Patient patient);
 
         int MaxUserID();
+
+        List<Appointment> GetPatientAppointments(int id);
+        List<Appointment> GetProviderAppointments(int id);
+        List<Appointment> GetAllAppointments();
     }
 
     /// <summary>
@@ -67,6 +76,18 @@ namespace SaintMarysClinicMedicalManagementSystem
         {
             DB.MMSUsers.Add(user);
             DB.Patients.Add(patient);
+            DB.SaveChanges();
+        }
+
+        public void AddNewAppointment(Appointment appointment)
+        {
+            DB.Appointments.Add(appointment);
+            DB.SaveChanges();
+        }
+
+        public void DeleteAppointment(int id)
+        {
+            DB.Appointments.Remove(DB.Appointments.Find(id));
             DB.SaveChanges();
         }
 
@@ -103,9 +124,40 @@ namespace SaintMarysClinicMedicalManagementSystem
             return currentUser; //return the User record for that email
         }
 
+        public List<Appointment> GetPatientAppointments(int id)
+        {
+            List<Appointment> allAppointments = DB.Appointments.ToList();
+            List<Appointment> thisPatientsAppointments = new List<Appointment>();
+            foreach (Appointment a in allAppointments)
+            {
+                if (a.PatientUserID == id)
+                {
+                    thisPatientsAppointments.Add(a);
+                }
+            }
+            return thisPatientsAppointments;
+        }
+        public List<Appointment> GetProviderAppointments(int id)
+        {
+            List<Appointment> allAppointments = DB.Appointments.ToList();
+            List<Appointment> thisProvidersAppointments = new List<Appointment>();
+            foreach (Appointment a in allAppointments)
+            {
+                if (a.ProviderUserID == id)
+                {
+                    thisProvidersAppointments.Add(a);
+                }
+            }
+            return thisProvidersAppointments;
+        }
+
         public int MaxUserID()
         {
             return DB.MMSUsers.Max(x => x.UserID);
+        }
+        public int MaxApptID()
+        {
+            return DB.Appointments.Max(x => x.ApptID);
         }
 
         public void UpdatePatient(MMSUser user, Patient patient)
@@ -115,7 +167,9 @@ namespace SaintMarysClinicMedicalManagementSystem
             userToUpdate.FirstName = user.FirstName;
             userToUpdate.MiddleName = user.MiddleName;
             userToUpdate.LastName = user.LastName;
-            userToUpdate.
+            userToUpdate.Phone = user.Phone;
+            patientToUpdate.Address = patient.Address;
+            patientToUpdate.DOB = patient.DOB;
             DB.SaveChanges();
         }
 
@@ -136,6 +190,11 @@ namespace SaintMarysClinicMedicalManagementSystem
             }
             return ut; //if the passed email is found and the password for that email matches the passed password the valid is set to true
                           //and returned, otherwise default false value is returned
+        }
+
+        public List<Appointment> GetAllAppointments()
+        {
+            return DB.Appointments.ToList();
         }
     }
 

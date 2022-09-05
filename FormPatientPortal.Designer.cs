@@ -33,6 +33,9 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.btnLogout = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbProfile = new System.Windows.Forms.TabPage();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
+            this.lblUpdateInstructions = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.lblDOB = new System.Windows.Forms.Label();
             this.dttmDOB = new System.Windows.Forms.DateTimePicker();
             this.lblAddress = new System.Windows.Forms.Label();
@@ -47,7 +50,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.lblLastName = new System.Windows.Forms.Label();
             this.tbMakeAppt = new System.Windows.Forms.TabPage();
             this.lblNote = new System.Windows.Forms.Label();
-            this.btnCheckAvailability = new System.Windows.Forms.Button();
+            this.btnMakeAppt = new System.Windows.Forms.Button();
             this.txtApptDescription = new System.Windows.Forms.TextBox();
             this.lblApptDescription = new System.Windows.Forms.Label();
             this.lblApptTime = new System.Windows.Forms.Label();
@@ -55,19 +58,18 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.dttmApptTime = new System.Windows.Forms.DateTimePicker();
             this.dttmApptDate = new System.Windows.Forms.DateTimePicker();
             this.tbViewAppointment = new System.Windows.Forms.TabPage();
+            this.btnConfirmDelete = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblCancelMessage = new System.Windows.Forms.Label();
+            this.btnCancelAppt = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.lblUpdateInstructions = new System.Windows.Forms.Label();
-            this.btnSaveChanges = new System.Windows.Forms.Button();
+            this.dtgrdApptDisplay = new System.Windows.Forms.DataGridView();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.tabControl1.SuspendLayout();
             this.tbProfile.SuspendLayout();
             this.tbMakeAppt.SuspendLayout();
             this.tbViewAppointment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrdApptDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -117,6 +119,43 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tbProfile.TabIndex = 2;
             this.tbProfile.Text = "My Profile";
             this.tbProfile.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveChanges
+            // 
+            this.btnSaveChanges.Location = new System.Drawing.Point(236, 404);
+            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(201, 32);
+            this.btnSaveChanges.TabIndex = 43;
+            this.btnSaveChanges.Text = "Save Changes";
+            this.btnSaveChanges.UseVisualStyleBackColor = true;
+            this.btnSaveChanges.Visible = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
+            // 
+            // lblUpdateInstructions
+            // 
+            this.lblUpdateInstructions.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblUpdateInstructions.AutoSize = true;
+            this.lblUpdateInstructions.Font = new System.Drawing.Font("Papyrus", 9.25F, System.Drawing.FontStyle.Bold);
+            this.lblUpdateInstructions.ForeColor = System.Drawing.Color.Crimson;
+            this.lblUpdateInstructions.Location = new System.Drawing.Point(93, 338);
+            this.lblUpdateInstructions.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblUpdateInstructions.Name = "lblUpdateInstructions";
+            this.lblUpdateInstructions.Size = new System.Drawing.Size(552, 21);
+            this.lblUpdateInstructions.TabIndex = 42;
+            this.lblUpdateInstructions.Text = "Update all fields that you wish to above and then click the Save Changes button";
+            this.lblUpdateInstructions.Visible = false;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(670, 118);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(201, 32);
+            this.btnUpdate.TabIndex = 41;
+            this.btnUpdate.Text = "Update Profile";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lblDOB
             // 
@@ -252,7 +291,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // tbMakeAppt
             // 
             this.tbMakeAppt.Controls.Add(this.lblNote);
-            this.tbMakeAppt.Controls.Add(this.btnCheckAvailability);
+            this.tbMakeAppt.Controls.Add(this.btnMakeAppt);
             this.tbMakeAppt.Controls.Add(this.txtApptDescription);
             this.tbMakeAppt.Controls.Add(this.lblApptDescription);
             this.tbMakeAppt.Controls.Add(this.lblApptTime);
@@ -278,15 +317,15 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.lblNote.TabIndex = 7;
             this.lblNote.Text = resources.GetString("lblNote.Text");
             // 
-            // btnCheckAvailability
+            // btnMakeAppt
             // 
-            this.btnCheckAvailability.Location = new System.Drawing.Point(393, 416);
-            this.btnCheckAvailability.Name = "btnCheckAvailability";
-            this.btnCheckAvailability.Size = new System.Drawing.Size(224, 28);
-            this.btnCheckAvailability.TabIndex = 5;
-            this.btnCheckAvailability.Text = "Check Appointment Availabilty";
-            this.btnCheckAvailability.UseVisualStyleBackColor = true;
-            this.btnCheckAvailability.Click += new System.EventHandler(this.btnCheckAvailability_Click);
+            this.btnMakeAppt.Location = new System.Drawing.Point(393, 416);
+            this.btnMakeAppt.Name = "btnMakeAppt";
+            this.btnMakeAppt.Size = new System.Drawing.Size(224, 28);
+            this.btnMakeAppt.TabIndex = 5;
+            this.btnMakeAppt.Text = "Make Appointment";
+            this.btnMakeAppt.UseVisualStyleBackColor = true;
+            this.btnMakeAppt.Click += new System.EventHandler(this.btnMakeAppt_Click);
             // 
             // txtApptDescription
             // 
@@ -296,6 +335,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtApptDescription.Name = "txtApptDescription";
             this.txtApptDescription.Size = new System.Drawing.Size(358, 69);
             this.txtApptDescription.TabIndex = 6;
+            this.txtApptDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtApptDescription_Validating);
             // 
             // lblApptDescription
             // 
@@ -329,12 +369,16 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             // dttmApptTime
             // 
-            this.dttmApptTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dttmApptTime.CustomFormat = "hh:mm";
+            this.dttmApptTime.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dttmApptTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dttmApptTime.Location = new System.Drawing.Point(411, 127);
             this.dttmApptTime.Margin = new System.Windows.Forms.Padding(4);
             this.dttmApptTime.Name = "dttmApptTime";
             this.dttmApptTime.Size = new System.Drawing.Size(358, 25);
             this.dttmApptTime.TabIndex = 1;
+            this.dttmApptTime.Value = new System.DateTime(2022, 9, 1, 9, 0, 0, 0);
+            this.dttmApptTime.Validating += new System.ComponentModel.CancelEventHandler(this.dttmApptTime_Validating);
             // 
             // dttmApptDate
             // 
@@ -343,14 +387,16 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.dttmApptDate.Name = "dttmApptDate";
             this.dttmApptDate.Size = new System.Drawing.Size(358, 25);
             this.dttmApptDate.TabIndex = 0;
+            this.dttmApptDate.Validating += new System.ComponentModel.CancelEventHandler(this.dttmApptDate_Validating);
             // 
             // tbViewAppointment
             // 
+            this.tbViewAppointment.Controls.Add(this.btnConfirmDelete);
             this.tbViewAppointment.Controls.Add(this.label7);
-            this.tbViewAppointment.Controls.Add(this.label6);
-            this.tbViewAppointment.Controls.Add(this.button2);
+            this.tbViewAppointment.Controls.Add(this.lblCancelMessage);
+            this.tbViewAppointment.Controls.Add(this.btnCancelAppt);
             this.tbViewAppointment.Controls.Add(this.label3);
-            this.tbViewAppointment.Controls.Add(this.dataGridView1);
+            this.tbViewAppointment.Controls.Add(this.dtgrdApptDisplay);
             this.tbViewAppointment.Location = new System.Drawing.Point(4, 27);
             this.tbViewAppointment.Margin = new System.Windows.Forms.Padding(4);
             this.tbViewAppointment.Name = "tbViewAppointment";
@@ -360,32 +406,46 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tbViewAppointment.Text = "View Appointments";
             this.tbViewAppointment.UseVisualStyleBackColor = true;
             // 
+            // btnConfirmDelete
+            // 
+            this.btnConfirmDelete.Location = new System.Drawing.Point(645, 229);
+            this.btnConfirmDelete.Name = "btnConfirmDelete";
+            this.btnConfirmDelete.Size = new System.Drawing.Size(202, 29);
+            this.btnConfirmDelete.TabIndex = 5;
+            this.btnConfirmDelete.Text = "Confirm Delete";
+            this.btnConfirmDelete.UseVisualStyleBackColor = true;
+            this.btnConfirmDelete.Visible = false;
+            this.btnConfirmDelete.Click += new System.EventHandler(this.btnConfirmDelete_Click);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(21, 40);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(379, 18);
+            this.label7.Size = new System.Drawing.Size(432, 18);
             this.label7.TabIndex = 4;
-            this.label7.Text = "APPOINTMENTS DISPLAY: Here are your appointments:";
+            this.label7.Text = "Here are your appointments: (If display is blank, then you have no appts)";
             // 
-            // label6
+            // lblCancelMessage
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(642, 126);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(223, 18);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Select the appt that you want to dell";
+            this.lblCancelMessage.AutoSize = true;
+            this.lblCancelMessage.Location = new System.Drawing.Point(642, 126);
+            this.lblCancelMessage.Name = "lblCancelMessage";
+            this.lblCancelMessage.Size = new System.Drawing.Size(277, 54);
+            this.lblCancelMessage.TabIndex = 3;
+            this.lblCancelMessage.Text = "Select the appt that you want to delete in the \r\nAppointments Display and then cl" +
+    "ick \r\nConfirm Delete";
+            this.lblCancelMessage.Visible = false;
             // 
-            // button2
+            // btnCancelAppt
             // 
-            this.button2.Location = new System.Drawing.Point(645, 78);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 29);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cancel An Appointment";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancelAppt.Location = new System.Drawing.Point(645, 78);
+            this.btnCancelAppt.Name = "btnCancelAppt";
+            this.btnCancelAppt.Size = new System.Drawing.Size(202, 29);
+            this.btnCancelAppt.TabIndex = 2;
+            this.btnCancelAppt.Text = "Cancel An Appointment";
+            this.btnCancelAppt.UseVisualStyleBackColor = true;
+            this.btnCancelAppt.Click += new System.EventHandler(this.btnCancelAppt_Click);
             // 
             // label3
             // 
@@ -396,50 +456,22 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.label3.TabIndex = 1;
             this.label3.Text = "APPOINTMENTS DISPLAY\r\n";
             // 
-            // dataGridView1
+            // dtgrdApptDisplay
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 61);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(574, 508);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgrdApptDisplay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgrdApptDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrdApptDisplay.Location = new System.Drawing.Point(24, 61);
+            this.dtgrdApptDisplay.Name = "dtgrdApptDisplay";
+            this.dtgrdApptDisplay.Size = new System.Drawing.Size(574, 508);
+            this.dtgrdApptDisplay.TabIndex = 0;
             // 
-            // btnUpdate
+            // entityCommand1
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(670, 118);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(201, 32);
-            this.btnUpdate.TabIndex = 41;
-            this.btnUpdate.Text = "Update Profile";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // lblUpdateInstructions
-            // 
-            this.lblUpdateInstructions.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblUpdateInstructions.AutoSize = true;
-            this.lblUpdateInstructions.Font = new System.Drawing.Font("Papyrus", 9.25F, System.Drawing.FontStyle.Bold);
-            this.lblUpdateInstructions.ForeColor = System.Drawing.Color.Crimson;
-            this.lblUpdateInstructions.Location = new System.Drawing.Point(93, 338);
-            this.lblUpdateInstructions.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblUpdateInstructions.Name = "lblUpdateInstructions";
-            this.lblUpdateInstructions.Size = new System.Drawing.Size(552, 21);
-            this.lblUpdateInstructions.TabIndex = 42;
-            this.lblUpdateInstructions.Text = "Update all fields that you wish to above and then click the Save Changes button";
-            this.lblUpdateInstructions.Visible = false;
-            // 
-            // btnSaveChanges
-            // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(236, 404);
-            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(201, 32);
-            this.btnSaveChanges.TabIndex = 43;
-            this.btnSaveChanges.Text = "Save Changes";
-            this.btnSaveChanges.UseVisualStyleBackColor = true;
-            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
             // 
             // FormPatientPortal
             // 
@@ -463,7 +495,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tbMakeAppt.PerformLayout();
             this.tbViewAppointment.ResumeLayout(false);
             this.tbViewAppointment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrdApptDisplay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -482,12 +514,12 @@ namespace SaintMarysClinicMedicalManagementSystem
         private System.Windows.Forms.Label lblApptDescription;
         private System.Windows.Forms.Label lblApptTime;
         private System.Windows.Forms.Label lblNote;
-        private System.Windows.Forms.Button btnCheckAvailability;
+        private System.Windows.Forms.Button btnMakeAppt;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblCancelMessage;
+        private System.Windows.Forms.Button btnCancelAppt;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgrdApptDisplay;
         private System.Windows.Forms.Label lblDOB;
         private System.Windows.Forms.DateTimePicker dttmDOB;
         private System.Windows.Forms.Label lblAddress;
@@ -503,5 +535,7 @@ namespace SaintMarysClinicMedicalManagementSystem
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblUpdateInstructions;
         private System.Windows.Forms.Button btnSaveChanges;
+        private System.Windows.Forms.Button btnConfirmDelete;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
     }
 }

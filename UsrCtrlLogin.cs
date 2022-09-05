@@ -40,6 +40,7 @@ namespace SaintMarysClinicMedicalManagementSystem
                             break;
                         case 3:
                             FormAdminPortal formAdminPortal = new FormAdminPortal();
+                            formAdminPortal.CurrentLoggedInEmail = txtbxEmail.Text;
                             formAdminPortal.Show();
                             break;
                     }
@@ -140,6 +141,11 @@ namespace SaintMarysClinicMedicalManagementSystem
                 txtbxPassword.PasswordChar = '*'; // make the password hidden by replacing the text with * symbol
                 btnViewPassword.Text = "View"; //change the button text to display "View"
             }
+        }
+
+        private void AnyField_TextChanged(object sender, EventArgs e)
+        {
+            lblErrorLogin.Visible = false;
         }
     }
 }
