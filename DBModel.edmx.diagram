@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da43b270f2144928945451f22c5160e7" Name="Diagram1">
+        <EntityTypeShape EntityType="MMSModel.Appointment" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMSModel.Employee" Width="1.5" PointX="2.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMSModel.MMSUser" Width="1.5" PointX="0.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMSModel.Patient" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="MMSModel.FK__Appointme__Patie__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="MMSModel.FK__Appointme__Provi__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="MMSModel.FK__Employee__UserID__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="MMSModel.FK__Patient__PCMUser__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="MMSModel.FK__Patient__UserID__72C60C4A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

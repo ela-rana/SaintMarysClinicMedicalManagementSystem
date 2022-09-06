@@ -49,7 +49,7 @@ namespace SaintMarysClinicMedicalManagementSystem
     /// <summary>
     /// Enum that represents all possible appointment length types for the Appointment table integer field Duration
     /// </summary>
-    public enum Lengths
+    public enum Durations
     {
         ThirtyMinutes = 30,
         SixtyMinutes = 60

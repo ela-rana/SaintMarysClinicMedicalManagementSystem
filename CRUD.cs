@@ -32,7 +32,7 @@ namespace SaintMarysClinicMedicalManagementSystem
         Nullable<UserTypes> ValidLogin(string email, string password);
 
         /// <summary>
-        /// 
+        /// Adds passed user and corresponding patient record to database
         /// </summary>
         /// <param name="user"></param>
         /// <param name="patient"></param>
@@ -41,8 +41,10 @@ namespace SaintMarysClinicMedicalManagementSystem
         void AddNewEmployee(MMSUser user, Employee employee);
 
         MMSUser GetPatient(string email, out Patient patient);
+        MMSUser GetEmployee(string email, out Employee employee);
 
         void UpdatePatient(MMSUser user, Patient patient);
+        void UpdateEmployee(MMSUser user, Employee employee);
 
         int MaxUserID();
 
@@ -124,6 +126,23 @@ namespace SaintMarysClinicMedicalManagementSystem
             return currentUser; //return the User record for that email
         }
 
+        public MMSUser GetEmployee(string email, out Employee employee)
+        {
+            MMSUser currentUser = null;
+            employee = null;
+            List<MMSUser> allUsers = DB.MMSUsers.ToList();  //to create a list to hold all User records
+            foreach (MMSUser user in allUsers)   //go through each record in the User table
+            {
+                if (user.Email == email) //if the passed email matches the table record's email
+                {
+                    currentUser = user;
+                    employee = DB.Employees.Find(user.UserID); //return the record for that email
+                    break;  //break out of the foreach loop. We don't need to search anymore since we already found a match
+                }
+            }
+            return currentUser; //return the User record for that email
+        }
+
         public List<Appointment> GetPatientAppointments(int id)
         {
             List<Appointment> allAppointments = DB.Appointments.ToList();
@@ -170,6 +189,18 @@ namespace SaintMarysClinicMedicalManagementSystem
             userToUpdate.Phone = user.Phone;
             patientToUpdate.Address = patient.Address;
             patientToUpdate.DOB = patient.DOB;
+            DB.SaveChanges();
+        }
+        public void UpdateEmployee(MMSUser user, Employee employee)
+        {
+            MMSUser userToUpdate = DB.MMSUsers.Find(user.UserID);
+            Employee employeeToUpdate = DB.Employees.Find(user.UserID);
+            userToUpdate.FirstName = user.FirstName;
+            userToUpdate.MiddleName = user.MiddleName;
+            userToUpdate.LastName = user.LastName;
+            userToUpdate.Phone = user.Phone;
+            employeeToUpdate.EmpType = employee.EmpType;
+            employeeToUpdate.Specialty = employee.Specialty;
             DB.SaveChanges();
         }
 

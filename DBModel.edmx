@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="ApptID" />
+          </Key>
+          <Property Name="ApptID" Type="int" Nullable="false" />
+          <Property Name="ApptDate" Type="date" Nullable="false" />
+          <Property Name="ApptTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Verified" Type="bit" />
+          <Property Name="PatientUserID" Type="int" Nullable="false" />
+          <Property Name="ProviderUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="EmpType" Type="int" Nullable="false" />
+          <Property Name="Specialty" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MMSUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Passwrd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SSN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PCMUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Appointme__Patie__03F0984C">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Provi__04E4BC85">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ProviderUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__UserID__07C12930">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__PCMUser__74AE54BC">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PCMUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__UserID__72C60C4A">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MMSModelStoreContainer">
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MMSUser" EntityType="Self.MMSUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Appointme__Patie__03F0984C" Association="Self.FK__Appointme__Patie__03F0984C">
+            <End Role="MMSUser" EntitySet="MMSUser" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Provi__04E4BC85" Association="Self.FK__Appointme__Provi__04E4BC85">
+            <End Role="MMSUser" EntitySet="MMSUser" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__UserID__07C12930" Association="Self.FK__Employee__UserID__07C12930">
+            <End Role="MMSUser" EntitySet="MMSUser" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__PCMUser__74AE54BC" Association="Self.FK__Patient__PCMUser__74AE54BC">
+            <End Role="MMSUser" EntitySet="MMSUser" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__UserID__72C60C4A" Association="Self.FK__Patient__UserID__72C60C4A">
+            <End Role="MMSUser" EntitySet="MMSUser" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="ApptID" />
+          </Key>
+          <Property Name="ApptID" Type="Int32" Nullable="false" />
+          <Property Name="ApptDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ApptTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Verified" Type="Boolean" />
+          <Property Name="PatientUserID" Type="Int32" Nullable="false" />
+          <Property Name="ProviderUserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MMSUser" Relationship="Self.FK__Appointme__Patie__03F0984C" FromRole="Appointment" ToRole="MMSUser" />
+          <NavigationProperty Name="MMSUser1" Relationship="Self.FK__Appointme__Provi__04E4BC85" FromRole="Appointment" ToRole="MMSUser" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="EmpType" Type="Int32" Nullable="false" />
+          <Property Name="Specialty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MMSUser" Relationship="Self.FK__Employee__UserID__07C12930" FromRole="Employee" ToRole="MMSUser" />
+        </EntityType>
+        <EntityType Name="MMSUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Passwrd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SSN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK__Appointme__Patie__03F0984C" FromRole="MMSUser" ToRole="Appointment" />
+          <NavigationProperty Name="Appointments1" Relationship="Self.FK__Appointme__Provi__04E4BC85" FromRole="MMSUser" ToRole="Appointment" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__UserID__07C12930" FromRole="MMSUser" ToRole="Employee" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Patient__PCMUser__74AE54BC" FromRole="MMSUser" ToRole="Patient" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__Patient__UserID__72C60C4A" FromRole="MMSUser" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PCMUserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MMSUser" Relationship="Self.FK__Patient__PCMUser__74AE54BC" FromRole="Patient" ToRole="MMSUser" />
+          <NavigationProperty Name="MMSUser1" Relationship="Self.FK__Patient__UserID__72C60C4A" FromRole="Patient" ToRole="MMSUser" />
+        </EntityType>
+        <Association Name="FK__Appointme__Patie__03F0984C">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Provi__04E4BC85">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ProviderUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__UserID__07C12930">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__PCMUser__74AE54BC">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PCMUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__UserID__72C60C4A">
+          <End Role="MMSUser" Type="Self.MMSUser" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MMSUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="MMSUsers" EntityType="Self.MMSUser" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <AssociationSet Name="FK__Appointme__Patie__03F0984C" Association="Self.FK__Appointme__Patie__03F0984C">
+            <End Role="MMSUser" EntitySet="MMSUsers" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Provi__04E4BC85" Association="Self.FK__Appointme__Provi__04E4BC85">
+            <End Role="MMSUser" EntitySet="MMSUsers" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__UserID__07C12930" Association="Self.FK__Employee__UserID__07C12930">
+            <End Role="MMSUser" EntitySet="MMSUsers" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__PCMUser__74AE54BC" Association="Self.FK__Patient__PCMUser__74AE54BC">
+            <End Role="MMSUser" EntitySet="MMSUsers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__UserID__72C60C4A" Association="Self.FK__Patient__UserID__72C60C4A">
+            <End Role="MMSUser" EntitySet="MMSUsers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MMSModelStoreContainer" CdmEntityContainer="MMSEntities">
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="MMSModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="ApptID" ColumnName="ApptID" />
+                <ScalarProperty Name="ApptDate" ColumnName="ApptDate" />
+                <ScalarProperty Name="ApptTime" ColumnName="ApptTime" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Verified" ColumnName="Verified" />
+                <ScalarProperty Name="PatientUserID" ColumnName="PatientUserID" />
+                <ScalarProperty Name="ProviderUserID" ColumnName="ProviderUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="MMSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+                <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MMSUsers">
+            <EntityTypeMapping TypeName="MMSModel.MMSUser">
+              <MappingFragment StoreEntitySet="MMSUser">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Passwrd" ColumnName="Passwrd" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="MMSModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PCMUserID" ColumnName="PCMUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
