@@ -15,11 +15,24 @@ namespace SaintMarysClinicMedicalManagementSystem
         MMSCRUD mms;
         Employee loggedInEmployee;
         MMSUser loggedInUser;
+        public static FormAdminPortal instance;
+        public TextBox TxtBxPatientID
+        {
+            get { return txtbxPatient; }
+            set { txtbxPatient = value; }
+        }
+
+        public TextBox TxtBxProviderID
+        {
+            get { return txtbxProvider; }
+            set { txtbxProvider = value; }
+        }
 
         public string CurrentLoggedInEmail { get; set; }
         public FormAdminPortal()
         {
             InitializeComponent();
+            instance = this;
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -100,6 +113,81 @@ namespace SaintMarysClinicMedicalManagementSystem
             MessageBox.Show("Appointment deleted");
             dtgrdApptDisplay.DataSource = null;
             dtgrdApptDisplay.DataSource = mms.GetAllAppointments();
+        }
+
+        private void btnVerify_Click(object sender, EventArgs e)
+        {
+            int apID;
+            bool parsed = Int32.TryParse(dtgrdApptDisplay.CurrentRow.Cells[0].Value.ToString(),out apID);
+            if(parsed)
+            {
+                mms.VerifyAppointment(apID);
+            }
+            else
+            {
+                MessageBox.Show("Error: Please ensure the appt to verify is selected in grid");
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int apID;
+            bool parsed = Int32.TryParse(dtgrdApptDisplay.CurrentRow.Cells[0].Value.ToString(), out apID);
+            if (parsed)
+            {
+                dtgrdApptDisplay.Enabled = false;
+                grpFields.Visible = true;
+                btnConfirmEdit.Visible = true;
+                btnCancelEdit.Visible = true;
+                Appointment ap = mms.GetAppointment(apID);
+                dttmApptDate.Value = ap.ApptDate.Date;
+                dttmApptTime.Value = new DateTime(2022, 1, 1, ap.ApptTime.Hours, ap.ApptTime.Minutes, 0);
+                txtApptDescription.Text = ap.Description;
+                if (ap.Duration == 30)
+                    cmbbxDuration.SelectedIndex = 0;
+                if (ap.Duration == 60)
+                    cmbbxDuration.SelectedIndex = 1;
+            }
+            else
+            {
+                MessageBox.Show("Error: Please ensure the appt to verify is selected in grid");
+            }
+        }
+
+        private void btnAddAppt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfirmEdit_Click(object sender, EventArgs e)
+        {
+            //Appointment a = mms.GetAppointment();
+            dtgrdApptDisplay.Enabled = true;
+            grpFields.Visible = false;
+            btnConfirmEdit.Visible = false;
+
+        }
+
+        private void btnConfirmAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBrowsePatient_Click(object sender, EventArgs e)
+        {
+            BrowsePatientDialog dialog = new BrowsePatientDialog();
+            dialog.ShowDialog();
+        }
+
+        private void btnBrowseProvider_Click(object sender, EventArgs e)
+        {
+            BrowseProviderDialog dialog = new BrowseProviderDialog();
+            dialog.ShowDialog();
+        }
+
+        private void btnCancelEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

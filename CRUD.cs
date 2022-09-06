@@ -51,6 +51,12 @@ namespace SaintMarysClinicMedicalManagementSystem
         List<Appointment> GetPatientAppointments(int id);
         List<Appointment> GetProviderAppointments(int id);
         List<Appointment> GetAllAppointments();
+        List<MMSUser> GetAllPatientUsers();
+        List<MMSUser> GetAllProviderUsers();
+
+        void VerifyAppointment(int ApptID);
+
+        Appointment GetAppointment(int ApptID);
     }
 
     /// <summary>
@@ -226,6 +232,50 @@ namespace SaintMarysClinicMedicalManagementSystem
         public List<Appointment> GetAllAppointments()
         {
             return DB.Appointments.ToList();
+        }
+
+        public void VerifyAppointment(int ApptID)
+        {
+            Appointment ap = DB.Appointments.Find(ApptID);
+            ap.Verified = true;
+            DB.SaveChanges();
+        }
+
+        public Appointment GetAppointment(int ApptID)
+        {
+            return DB.Appointments.Find(ApptID);
+        }
+
+        public List<MMSUser> GetAllPatientUsers()
+        {
+            List<MMSUser> allUsers = DB.MMSUsers.ToList();  //to create a list to hold all User records
+            List<MMSUser> patientUsers = new List<MMSUser>();  //to create a list to hold all patients' User records
+
+            foreach (MMSUser user in allUsers)   //go through each record in the User table
+            {
+                if (user.UserType == 1) //if it is a patient record (user type 1)
+                {
+                    patientUsers.Add(user);
+                }
+            }
+            return patientUsers;
+        }
+        public List<MMSUser> GetAllProviderUsers()
+        {
+            List<MMSUser> allUsers = DB.MMSUsers.ToList();  //to create a list to hold all User records
+            List<MMSUser> providerUsers = new List<MMSUser>();  //to create a list to hold all providers' User records
+
+            foreach (MMSUser user in allUsers)   //go through each record in the User table
+            {
+                
+                if (user.UserType == 2) //if it is a medical employee record (user type 2)
+                {
+                    Employee e = DB.Employees.Find(user.UserID);    
+                    if(e.EmpType>1 && e.EmpType<5)  //employee type 2,3,4 are providers (see enums.cs for all employee types)
+                        providerUsers.Add(user);
+                }
+            }
+            return providerUsers;
         }
     }
 

@@ -63,6 +63,18 @@
     <Compile Include="Appointment.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BrowsePatientDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrowsePatientDialog.Designer.cs">
+      <DependentUpon>BrowsePatientDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseProviderDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrowseProviderDialog.Designer.cs">
+      <DependentUpon>BrowseProviderDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="CRUD.cs" />
     <Compile Include="DBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -139,6 +151,12 @@
     <Compile Include="UsrCtrlHomeMenu.Designer.cs">
       <DependentUpon>UsrCtrlHomeMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BrowsePatientDialog.resx">
+      <DependentUpon>BrowsePatientDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrowseProviderDialog.resx">
+      <DependentUpon>BrowseProviderDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAdminPortal.resx">
       <DependentUpon>FormAdminPortal.cs</DependentUpon>
     </EmbeddedResource>

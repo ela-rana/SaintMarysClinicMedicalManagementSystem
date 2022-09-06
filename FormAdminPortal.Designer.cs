@@ -33,6 +33,8 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.btnLogOut = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbProfile = new System.Windows.Forms.TabPage();
+            this.txtbxSSN = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.lblUpdateInstructions = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -45,33 +47,39 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.lblMiddleName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.tbViewAppointment = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtgrdApptDisplay = new System.Windows.Forms.DataGridView();
-            this.txtbxSSN = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.lblMessage = new System.Windows.Forms.Label();
-            this.btnVerify = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnConfirmEdit = new System.Windows.Forms.Button();
-            this.btnAddAppt = new System.Windows.Forms.Button();
+            this.grpFields = new System.Windows.Forms.GroupBox();
             this.txtApptDescription = new System.Windows.Forms.TextBox();
-            this.lblApptDescription = new System.Windows.Forms.Label();
-            this.lblApptTime = new System.Windows.Forms.Label();
-            this.lblApptDate = new System.Windows.Forms.Label();
-            this.dttmApptTime = new System.Windows.Forms.DateTimePicker();
+            this.btnBrowseProvider = new System.Windows.Forms.Button();
             this.dttmApptDate = new System.Windows.Forms.DateTimePicker();
+            this.btnBrowsePatient = new System.Windows.Forms.Button();
+            this.dttmApptTime = new System.Windows.Forms.DateTimePicker();
+            this.cmbbxDuration = new System.Windows.Forms.ComboBox();
+            this.lblApptDate = new System.Windows.Forms.Label();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.lblApptTime = new System.Windows.Forms.Label();
+            this.txtbxProvider = new System.Windows.Forms.TextBox();
+            this.lblApptDescription = new System.Windows.Forms.Label();
+            this.lblProvider = new System.Windows.Forms.Label();
             this.lblPatient = new System.Windows.Forms.Label();
             this.txtbxPatient = new System.Windows.Forms.TextBox();
             this.btnConfirmAdd = new System.Windows.Forms.Button();
-            this.txtbxProvider = new System.Windows.Forms.TextBox();
-            this.lblProvider = new System.Windows.Forms.Label();
-            this.lblDuration = new System.Windows.Forms.Label();
-            this.cmbbxDuration = new System.Windows.Forms.ComboBox();
+            this.btnAddAppt = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnConfirmEdit = new System.Windows.Forms.Button();
+            this.btnVerify = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtgrdApptDisplay = new System.Windows.Forms.DataGridView();
+            this.lblApptID = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnCancelAdd = new System.Windows.Forms.Button();
+            this.btnCancelEdit = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tbProfile.SuspendLayout();
             this.tbViewAppointment.SuspendLayout();
+            this.grpFields.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdApptDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +126,28 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tbProfile.Text = "My Profile";
             this.tbProfile.UseVisualStyleBackColor = true;
             // 
+            // txtbxSSN
+            // 
+            this.txtbxSSN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxSSN.Enabled = false;
+            this.txtbxSSN.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxSSN.Location = new System.Drawing.Point(226, 190);
+            this.txtbxSSN.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbxSSN.Name = "txtbxSSN";
+            this.txtbxSSN.Size = new System.Drawing.Size(265, 23);
+            this.txtbxSSN.TabIndex = 45;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(92, 192);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 20);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "SSN";
+            // 
             // btnSaveChanges
             // 
             this.btnSaveChanges.Location = new System.Drawing.Point(197, 349);
@@ -159,7 +189,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxPhone.Enabled = false;
             this.txtbxPhone.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxPhone.Location = new System.Drawing.Point(226, 159);
-            this.txtbxPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbxPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxPhone.Name = "txtbxPhone";
             this.txtbxPhone.Size = new System.Drawing.Size(265, 23);
             this.txtbxPhone.TabIndex = 29;
@@ -170,7 +200,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxLastName.Enabled = false;
             this.txtbxLastName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxLastName.Location = new System.Drawing.Point(226, 131);
-            this.txtbxLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbxLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxLastName.Name = "txtbxLastName";
             this.txtbxLastName.Size = new System.Drawing.Size(265, 23);
             this.txtbxLastName.TabIndex = 27;
@@ -181,7 +211,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxMiddleName.Enabled = false;
             this.txtbxMiddleName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxMiddleName.Location = new System.Drawing.Point(226, 102);
-            this.txtbxMiddleName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbxMiddleName.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxMiddleName.Name = "txtbxMiddleName";
             this.txtbxMiddleName.Size = new System.Drawing.Size(265, 23);
             this.txtbxMiddleName.TabIndex = 26;
@@ -192,7 +222,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxFirstName.Enabled = false;
             this.txtbxFirstName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxFirstName.Location = new System.Drawing.Point(226, 72);
-            this.txtbxFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbxFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxFirstName.Name = "txtbxFirstName";
             this.txtbxFirstName.Size = new System.Drawing.Size(265, 23);
             this.txtbxFirstName.TabIndex = 25;
@@ -243,19 +273,10 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             // tbViewAppointment
             // 
-            this.tbViewAppointment.Controls.Add(this.cmbbxDuration);
-            this.tbViewAppointment.Controls.Add(this.lblDuration);
-            this.tbViewAppointment.Controls.Add(this.txtbxProvider);
-            this.tbViewAppointment.Controls.Add(this.lblProvider);
+            this.tbViewAppointment.Controls.Add(this.btnCancelAdd);
+            this.tbViewAppointment.Controls.Add(this.grpFields);
+            this.tbViewAppointment.Controls.Add(this.btnCancelEdit);
             this.tbViewAppointment.Controls.Add(this.btnConfirmAdd);
-            this.tbViewAppointment.Controls.Add(this.txtbxPatient);
-            this.tbViewAppointment.Controls.Add(this.lblPatient);
-            this.tbViewAppointment.Controls.Add(this.txtApptDescription);
-            this.tbViewAppointment.Controls.Add(this.lblApptDescription);
-            this.tbViewAppointment.Controls.Add(this.lblApptTime);
-            this.tbViewAppointment.Controls.Add(this.lblApptDate);
-            this.tbViewAppointment.Controls.Add(this.dttmApptTime);
-            this.tbViewAppointment.Controls.Add(this.dttmApptDate);
             this.tbViewAppointment.Controls.Add(this.btnAddAppt);
             this.tbViewAppointment.Controls.Add(this.btnEdit);
             this.tbViewAppointment.Controls.Add(this.btnConfirmEdit);
@@ -267,11 +288,257 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tbViewAppointment.Controls.Add(this.dtgrdApptDisplay);
             this.tbViewAppointment.Location = new System.Drawing.Point(4, 28);
             this.tbViewAppointment.Name = "tbViewAppointment";
-            this.tbViewAppointment.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbViewAppointment.Padding = new System.Windows.Forms.Padding(3);
             this.tbViewAppointment.Size = new System.Drawing.Size(879, 541);
             this.tbViewAppointment.TabIndex = 1;
             this.tbViewAppointment.Text = "View Appointments";
             this.tbViewAppointment.UseVisualStyleBackColor = true;
+            // 
+            // grpFields
+            // 
+            this.grpFields.Controls.Add(this.lblApptID);
+            this.grpFields.Controls.Add(this.textBox1);
+            this.grpFields.Controls.Add(this.txtApptDescription);
+            this.grpFields.Controls.Add(this.btnBrowseProvider);
+            this.grpFields.Controls.Add(this.dttmApptDate);
+            this.grpFields.Controls.Add(this.btnBrowsePatient);
+            this.grpFields.Controls.Add(this.dttmApptTime);
+            this.grpFields.Controls.Add(this.cmbbxDuration);
+            this.grpFields.Controls.Add(this.lblApptDate);
+            this.grpFields.Controls.Add(this.lblDuration);
+            this.grpFields.Controls.Add(this.lblApptTime);
+            this.grpFields.Controls.Add(this.txtbxProvider);
+            this.grpFields.Controls.Add(this.lblApptDescription);
+            this.grpFields.Controls.Add(this.lblProvider);
+            this.grpFields.Controls.Add(this.lblPatient);
+            this.grpFields.Controls.Add(this.txtbxPatient);
+            this.grpFields.Location = new System.Drawing.Point(502, 235);
+            this.grpFields.Name = "grpFields";
+            this.grpFields.Size = new System.Drawing.Size(373, 246);
+            this.grpFields.TabIndex = 25;
+            this.grpFields.TabStop = false;
+            this.grpFields.Visible = false;
+            // 
+            // txtApptDescription
+            // 
+            this.txtApptDescription.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApptDescription.Location = new System.Drawing.Point(105, 106);
+            this.txtApptDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApptDescription.Multiline = true;
+            this.txtApptDescription.Name = "txtApptDescription";
+            this.txtApptDescription.Size = new System.Drawing.Size(265, 50);
+            this.txtApptDescription.TabIndex = 15;
+            // 
+            // btnBrowseProvider
+            // 
+            this.btnBrowseProvider.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnBrowseProvider.Location = new System.Drawing.Point(206, 194);
+            this.btnBrowseProvider.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnBrowseProvider.Name = "btnBrowseProvider";
+            this.btnBrowseProvider.Size = new System.Drawing.Size(125, 20);
+            this.btnBrowseProvider.TabIndex = 24;
+            this.btnBrowseProvider.Text = "Browse Provider";
+            this.btnBrowseProvider.UseVisualStyleBackColor = true;
+            this.btnBrowseProvider.Click += new System.EventHandler(this.btnBrowseProvider_Click);
+            // 
+            // dttmApptDate
+            // 
+            this.dttmApptDate.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dttmApptDate.Location = new System.Drawing.Point(105, 46);
+            this.dttmApptDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dttmApptDate.Name = "dttmApptDate";
+            this.dttmApptDate.Size = new System.Drawing.Size(266, 20);
+            this.dttmApptDate.TabIndex = 10;
+            // 
+            // btnBrowsePatient
+            // 
+            this.btnBrowsePatient.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnBrowsePatient.Location = new System.Drawing.Point(206, 168);
+            this.btnBrowsePatient.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnBrowsePatient.Name = "btnBrowsePatient";
+            this.btnBrowsePatient.Size = new System.Drawing.Size(125, 20);
+            this.btnBrowsePatient.TabIndex = 23;
+            this.btnBrowsePatient.Text = "Browse Patient";
+            this.btnBrowsePatient.UseVisualStyleBackColor = true;
+            this.btnBrowsePatient.Click += new System.EventHandler(this.btnBrowsePatient_Click);
+            // 
+            // dttmApptTime
+            // 
+            this.dttmApptTime.CustomFormat = "hh:mm";
+            this.dttmApptTime.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dttmApptTime.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dttmApptTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dttmApptTime.Location = new System.Drawing.Point(105, 74);
+            this.dttmApptTime.Margin = new System.Windows.Forms.Padding(4);
+            this.dttmApptTime.Name = "dttmApptTime";
+            this.dttmApptTime.Size = new System.Drawing.Size(265, 20);
+            this.dttmApptTime.TabIndex = 11;
+            this.dttmApptTime.Value = new System.DateTime(2022, 9, 1, 9, 0, 0, 0);
+            // 
+            // cmbbxDuration
+            // 
+            this.cmbbxDuration.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbbxDuration.FormattingEnabled = true;
+            this.cmbbxDuration.Location = new System.Drawing.Point(104, 220);
+            this.cmbbxDuration.Name = "cmbbxDuration";
+            this.cmbbxDuration.Size = new System.Drawing.Size(266, 21);
+            this.cmbbxDuration.TabIndex = 22;
+            // 
+            // lblApptDate
+            // 
+            this.lblApptDate.AutoSize = true;
+            this.lblApptDate.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblApptDate.Location = new System.Drawing.Point(2, 45);
+            this.lblApptDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApptDate.Name = "lblApptDate";
+            this.lblApptDate.Size = new System.Drawing.Size(67, 13);
+            this.lblApptDate.TabIndex = 12;
+            this.lblApptDate.Text = "Appt Date:";
+            // 
+            // lblDuration
+            // 
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblDuration.Location = new System.Drawing.Point(1, 224);
+            this.lblDuration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(60, 13);
+            this.lblDuration.TabIndex = 21;
+            this.lblDuration.Text = "Duration:";
+            // 
+            // lblApptTime
+            // 
+            this.lblApptTime.AutoSize = true;
+            this.lblApptTime.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblApptTime.Location = new System.Drawing.Point(2, 80);
+            this.lblApptTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApptTime.Name = "lblApptTime";
+            this.lblApptTime.Size = new System.Drawing.Size(67, 13);
+            this.lblApptTime.TabIndex = 13;
+            this.lblApptTime.Text = "Appt Time:";
+            // 
+            // txtbxProvider
+            // 
+            this.txtbxProvider.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxProvider.Location = new System.Drawing.Point(104, 194);
+            this.txtbxProvider.Name = "txtbxProvider";
+            this.txtbxProvider.Size = new System.Drawing.Size(86, 20);
+            this.txtbxProvider.TabIndex = 20;
+            // 
+            // lblApptDescription
+            // 
+            this.lblApptDescription.AutoSize = true;
+            this.lblApptDescription.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblApptDescription.Location = new System.Drawing.Point(2, 110);
+            this.lblApptDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApptDescription.Name = "lblApptDescription";
+            this.lblApptDescription.Size = new System.Drawing.Size(75, 13);
+            this.lblApptDescription.TabIndex = 14;
+            this.lblApptDescription.Text = "Description:";
+            // 
+            // lblProvider
+            // 
+            this.lblProvider.AutoSize = true;
+            this.lblProvider.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblProvider.Location = new System.Drawing.Point(1, 198);
+            this.lblProvider.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProvider.Name = "lblProvider";
+            this.lblProvider.Size = new System.Drawing.Size(58, 13);
+            this.lblProvider.TabIndex = 19;
+            this.lblProvider.Text = "Provider:";
+            // 
+            // lblPatient
+            // 
+            this.lblPatient.AutoSize = true;
+            this.lblPatient.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblPatient.Location = new System.Drawing.Point(2, 172);
+            this.lblPatient.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPatient.Name = "lblPatient";
+            this.lblPatient.Size = new System.Drawing.Size(50, 13);
+            this.lblPatient.TabIndex = 16;
+            this.lblPatient.Text = "Patient:";
+            // 
+            // txtbxPatient
+            // 
+            this.txtbxPatient.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxPatient.Location = new System.Drawing.Point(105, 168);
+            this.txtbxPatient.Name = "txtbxPatient";
+            this.txtbxPatient.Size = new System.Drawing.Size(85, 20);
+            this.txtbxPatient.TabIndex = 17;
+            // 
+            // btnConfirmAdd
+            // 
+            this.btnConfirmAdd.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnConfirmAdd.Location = new System.Drawing.Point(665, 484);
+            this.btnConfirmAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnConfirmAdd.Name = "btnConfirmAdd";
+            this.btnConfirmAdd.Size = new System.Drawing.Size(125, 25);
+            this.btnConfirmAdd.TabIndex = 18;
+            this.btnConfirmAdd.Text = "Confirm Add";
+            this.btnConfirmAdd.UseVisualStyleBackColor = true;
+            this.btnConfirmAdd.Visible = false;
+            this.btnConfirmAdd.Click += new System.EventHandler(this.btnConfirmAdd_Click);
+            // 
+            // btnAddAppt
+            // 
+            this.btnAddAppt.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnAddAppt.Location = new System.Drawing.Point(705, 191);
+            this.btnAddAppt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnAddAppt.Name = "btnAddAppt";
+            this.btnAddAppt.Size = new System.Drawing.Size(170, 25);
+            this.btnAddAppt.TabIndex = 9;
+            this.btnAddAppt.Text = "Add New Appt";
+            this.btnAddAppt.UseVisualStyleBackColor = true;
+            this.btnAddAppt.Click += new System.EventHandler(this.btnAddAppt_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.Location = new System.Drawing.Point(705, 160);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(170, 25);
+            this.btnEdit.TabIndex = 8;
+            this.btnEdit.Text = "Edit Selected Appt";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnConfirmEdit
+            // 
+            this.btnConfirmEdit.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnConfirmEdit.Location = new System.Drawing.Point(536, 484);
+            this.btnConfirmEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnConfirmEdit.Name = "btnConfirmEdit";
+            this.btnConfirmEdit.Size = new System.Drawing.Size(125, 25);
+            this.btnConfirmEdit.TabIndex = 7;
+            this.btnConfirmEdit.Text = "Confirm Edit";
+            this.btnConfirmEdit.UseVisualStyleBackColor = true;
+            this.btnConfirmEdit.Visible = false;
+            this.btnConfirmEdit.Click += new System.EventHandler(this.btnConfirmEdit_Click);
+            // 
+            // btnVerify
+            // 
+            this.btnVerify.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnVerify.Location = new System.Drawing.Point(536, 160);
+            this.btnVerify.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnVerify.Name = "btnVerify";
+            this.btnVerify.Size = new System.Drawing.Size(170, 25);
+            this.btnVerify.TabIndex = 6;
+            this.btnVerify.Text = "Verify Selected Appt";
+            this.btnVerify.UseVisualStyleBackColor = true;
+            this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.Location = new System.Drawing.Point(536, 191);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(170, 25);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Delete Selected Appt";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label7
             // 
@@ -283,6 +550,19 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.label7.Size = new System.Drawing.Size(547, 17);
             this.label7.TabIndex = 4;
             this.label7.Text = "Here are your appointments: (If display is blank, then you have no appts)";
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblMessage.Location = new System.Drawing.Point(533, 68);
+            this.lblMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(335, 68);
+            this.lblMessage.TabIndex = 3;
+            this.lblMessage.Text = "Select an appt on the Appointments Display \r\nand click Verify Appointment below t" +
+    "o \r\napprove that appt request, Delete to cancel \r\nthe appt, or edit to update it" +
+    "\r\n";
             // 
             // label3
             // 
@@ -305,230 +585,49 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.dtgrdApptDisplay.Size = new System.Drawing.Size(478, 439);
             this.dtgrdApptDisplay.TabIndex = 0;
             // 
-            // txtbxSSN
+            // lblApptID
             // 
-            this.txtbxSSN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbxSSN.Enabled = false;
-            this.txtbxSSN.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbxSSN.Location = new System.Drawing.Point(226, 190);
-            this.txtbxSSN.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbxSSN.Name = "txtbxSSN";
-            this.txtbxSSN.Size = new System.Drawing.Size(265, 23);
-            this.txtbxSSN.TabIndex = 45;
+            this.lblApptID.AutoSize = true;
+            this.lblApptID.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblApptID.Location = new System.Drawing.Point(1, 23);
+            this.lblApptID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApptID.Name = "lblApptID";
+            this.lblApptID.Size = new System.Drawing.Size(50, 13);
+            this.lblApptID.TabIndex = 25;
+            this.lblApptID.Text = "Patient:";
             // 
-            // label1
+            // textBox1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 192);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 20);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "SSN";
+            this.textBox1.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(104, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(266, 20);
+            this.textBox1.TabIndex = 26;
             // 
-            // btnDelete
+            // btnCancelAdd
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.Location = new System.Drawing.Point(536, 191);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(216, 25);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Delete Selected Appt";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnCancelAdd.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCancelAdd.Location = new System.Drawing.Point(665, 510);
+            this.btnCancelAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCancelAdd.Name = "btnCancelAdd";
+            this.btnCancelAdd.Size = new System.Drawing.Size(125, 25);
+            this.btnCancelAdd.TabIndex = 27;
+            this.btnCancelAdd.Text = "Cancel Add";
+            this.btnCancelAdd.UseVisualStyleBackColor = true;
+            this.btnCancelAdd.Visible = false;
             // 
-            // lblMessage
+            // btnCancelEdit
             // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblMessage.Location = new System.Drawing.Point(533, 68);
-            this.lblMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(335, 68);
-            this.lblMessage.TabIndex = 3;
-            this.lblMessage.Text = "Select an appt on the Appointments Display \r\nand click Verify Appointment below t" +
-    "o \r\napprove that appt request, Delete to cancel \r\nthe appt, or edit to update it" +
-    "\r\n";
-            // 
-            // btnVerify
-            // 
-            this.btnVerify.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnVerify.Location = new System.Drawing.Point(536, 160);
-            this.btnVerify.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnVerify.Name = "btnVerify";
-            this.btnVerify.Size = new System.Drawing.Size(216, 25);
-            this.btnVerify.TabIndex = 6;
-            this.btnVerify.Text = "Verify Selected Appt";
-            this.btnVerify.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnEdit.Location = new System.Drawing.Point(536, 222);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(216, 25);
-            this.btnEdit.TabIndex = 8;
-            this.btnEdit.Text = "Edit Selected Appt";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnConfirmEdit
-            // 
-            this.btnConfirmEdit.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnConfirmEdit.Location = new System.Drawing.Point(536, 500);
-            this.btnConfirmEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnConfirmEdit.Name = "btnConfirmEdit";
-            this.btnConfirmEdit.Size = new System.Drawing.Size(125, 25);
-            this.btnConfirmEdit.TabIndex = 7;
-            this.btnConfirmEdit.Text = "Confirm Edit";
-            this.btnConfirmEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnAddAppt
-            // 
-            this.btnAddAppt.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnAddAppt.Location = new System.Drawing.Point(536, 253);
-            this.btnAddAppt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnAddAppt.Name = "btnAddAppt";
-            this.btnAddAppt.Size = new System.Drawing.Size(216, 25);
-            this.btnAddAppt.TabIndex = 9;
-            this.btnAddAppt.Text = "Add New Appt";
-            this.btnAddAppt.UseVisualStyleBackColor = true;
-            // 
-            // txtApptDescription
-            // 
-            this.txtApptDescription.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.txtApptDescription.Location = new System.Drawing.Point(607, 349);
-            this.txtApptDescription.Margin = new System.Windows.Forms.Padding(4);
-            this.txtApptDescription.Multiline = true;
-            this.txtApptDescription.Name = "txtApptDescription";
-            this.txtApptDescription.Size = new System.Drawing.Size(265, 50);
-            this.txtApptDescription.TabIndex = 15;
-            // 
-            // lblApptDescription
-            // 
-            this.lblApptDescription.AutoSize = true;
-            this.lblApptDescription.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblApptDescription.Location = new System.Drawing.Point(504, 353);
-            this.lblApptDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblApptDescription.Name = "lblApptDescription";
-            this.lblApptDescription.Size = new System.Drawing.Size(75, 13);
-            this.lblApptDescription.TabIndex = 14;
-            this.lblApptDescription.Text = "Description:";
-            // 
-            // lblApptTime
-            // 
-            this.lblApptTime.AutoSize = true;
-            this.lblApptTime.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblApptTime.Location = new System.Drawing.Point(504, 323);
-            this.lblApptTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblApptTime.Name = "lblApptTime";
-            this.lblApptTime.Size = new System.Drawing.Size(67, 13);
-            this.lblApptTime.TabIndex = 13;
-            this.lblApptTime.Text = "Appt Time:";
-            // 
-            // lblApptDate
-            // 
-            this.lblApptDate.AutoSize = true;
-            this.lblApptDate.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblApptDate.Location = new System.Drawing.Point(504, 288);
-            this.lblApptDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblApptDate.Name = "lblApptDate";
-            this.lblApptDate.Size = new System.Drawing.Size(67, 13);
-            this.lblApptDate.TabIndex = 12;
-            this.lblApptDate.Text = "Appt Date:";
-            // 
-            // dttmApptTime
-            // 
-            this.dttmApptTime.CustomFormat = "hh:mm";
-            this.dttmApptTime.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dttmApptTime.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.dttmApptTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dttmApptTime.Location = new System.Drawing.Point(607, 317);
-            this.dttmApptTime.Margin = new System.Windows.Forms.Padding(4);
-            this.dttmApptTime.Name = "dttmApptTime";
-            this.dttmApptTime.Size = new System.Drawing.Size(265, 20);
-            this.dttmApptTime.TabIndex = 11;
-            this.dttmApptTime.Value = new System.DateTime(2022, 9, 1, 9, 0, 0, 0);
-            // 
-            // dttmApptDate
-            // 
-            this.dttmApptDate.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.dttmApptDate.Location = new System.Drawing.Point(607, 289);
-            this.dttmApptDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dttmApptDate.Name = "dttmApptDate";
-            this.dttmApptDate.Size = new System.Drawing.Size(266, 20);
-            this.dttmApptDate.TabIndex = 10;
-            // 
-            // lblPatient
-            // 
-            this.lblPatient.AutoSize = true;
-            this.lblPatient.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblPatient.Location = new System.Drawing.Point(504, 415);
-            this.lblPatient.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPatient.Name = "lblPatient";
-            this.lblPatient.Size = new System.Drawing.Size(50, 13);
-            this.lblPatient.TabIndex = 16;
-            this.lblPatient.Text = "Patient:";
-            // 
-            // txtbxPatient
-            // 
-            this.txtbxPatient.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.txtbxPatient.Location = new System.Drawing.Point(607, 411);
-            this.txtbxPatient.Name = "txtbxPatient";
-            this.txtbxPatient.Size = new System.Drawing.Size(266, 20);
-            this.txtbxPatient.TabIndex = 17;
-            // 
-            // btnConfirmAdd
-            // 
-            this.btnConfirmAdd.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnConfirmAdd.Location = new System.Drawing.Point(665, 500);
-            this.btnConfirmAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnConfirmAdd.Name = "btnConfirmAdd";
-            this.btnConfirmAdd.Size = new System.Drawing.Size(125, 25);
-            this.btnConfirmAdd.TabIndex = 18;
-            this.btnConfirmAdd.Text = "Confirm Add";
-            this.btnConfirmAdd.UseVisualStyleBackColor = true;
-            // 
-            // txtbxProvider
-            // 
-            this.txtbxProvider.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.txtbxProvider.Location = new System.Drawing.Point(606, 437);
-            this.txtbxProvider.Name = "txtbxProvider";
-            this.txtbxProvider.Size = new System.Drawing.Size(266, 20);
-            this.txtbxProvider.TabIndex = 20;
-            // 
-            // lblProvider
-            // 
-            this.lblProvider.AutoSize = true;
-            this.lblProvider.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblProvider.Location = new System.Drawing.Point(503, 441);
-            this.lblProvider.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblProvider.Name = "lblProvider";
-            this.lblProvider.Size = new System.Drawing.Size(58, 13);
-            this.lblProvider.TabIndex = 19;
-            this.lblProvider.Text = "Provider:";
-            // 
-            // lblDuration
-            // 
-            this.lblDuration.AutoSize = true;
-            this.lblDuration.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblDuration.Location = new System.Drawing.Point(503, 467);
-            this.lblDuration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(57, 13);
-            this.lblDuration.TabIndex = 21;
-            this.lblDuration.Text = "Duration";
-            // 
-            // cmbbxDuration
-            // 
-            this.cmbbxDuration.Font = new System.Drawing.Font("Harrington", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cmbbxDuration.FormattingEnabled = true;
-            this.cmbbxDuration.Location = new System.Drawing.Point(606, 463);
-            this.cmbbxDuration.Name = "cmbbxDuration";
-            this.cmbbxDuration.Size = new System.Drawing.Size(266, 21);
-            this.cmbbxDuration.TabIndex = 22;
+            this.btnCancelEdit.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCancelEdit.Location = new System.Drawing.Point(536, 510);
+            this.btnCancelEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCancelEdit.Name = "btnCancelEdit";
+            this.btnCancelEdit.Size = new System.Drawing.Size(125, 25);
+            this.btnCancelEdit.TabIndex = 26;
+            this.btnCancelEdit.Text = "Cancel Edit";
+            this.btnCancelEdit.UseVisualStyleBackColor = true;
+            this.btnCancelEdit.Visible = false;
+            this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
             // 
             // FormAdminPortal
             // 
@@ -550,6 +649,8 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tbProfile.PerformLayout();
             this.tbViewAppointment.ResumeLayout(false);
             this.tbViewAppointment.PerformLayout();
+            this.grpFields.ResumeLayout(false);
+            this.grpFields.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdApptDisplay)).EndInit();
             this.ResumeLayout(false);
 
@@ -584,10 +685,8 @@ namespace SaintMarysClinicMedicalManagementSystem
         private System.Windows.Forms.Button btnConfirmEdit;
         private System.Windows.Forms.ComboBox cmbbxDuration;
         private System.Windows.Forms.Label lblDuration;
-        private System.Windows.Forms.TextBox txtbxProvider;
         private System.Windows.Forms.Label lblProvider;
         private System.Windows.Forms.Button btnConfirmAdd;
-        private System.Windows.Forms.TextBox txtbxPatient;
         private System.Windows.Forms.Label lblPatient;
         private System.Windows.Forms.TextBox txtApptDescription;
         private System.Windows.Forms.Label lblApptDescription;
@@ -595,5 +694,14 @@ namespace SaintMarysClinicMedicalManagementSystem
         private System.Windows.Forms.Label lblApptDate;
         private System.Windows.Forms.DateTimePicker dttmApptTime;
         private System.Windows.Forms.DateTimePicker dttmApptDate;
+        private System.Windows.Forms.Button btnBrowseProvider;
+        private System.Windows.Forms.Button btnBrowsePatient;
+        private System.Windows.Forms.TextBox txtbxProvider;
+        private System.Windows.Forms.TextBox txtbxPatient;
+        private System.Windows.Forms.GroupBox grpFields;
+        private System.Windows.Forms.Label lblApptID;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnCancelAdd;
+        private System.Windows.Forms.Button btnCancelEdit;
     }
 }
