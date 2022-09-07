@@ -148,6 +148,7 @@ namespace SaintMarysClinicMedicalManagementSystem
                 newAppt.Description = txtApptDescription.Text;
                 newAppt.PatientUserID = loggedInPatient.UserID;
                 newAppt.ProviderUserID = loggedInPatient.PCMUserID;
+                newAppt.Verified = false;
                 mms.AddNewAppointment(newAppt);
                 MessageBox.Show("Appointment created. Please go to View Appointments tab if you wish to view your appt");
                 dtgrdApptDisplay.DataSource = null;

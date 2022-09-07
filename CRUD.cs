@@ -45,6 +45,7 @@ namespace SaintMarysClinicMedicalManagementSystem
 
         void UpdatePatient(MMSUser user, Patient patient);
         void UpdateEmployee(MMSUser user, Employee employee);
+        void UpdateAppointment(Appointment a);
 
         int MaxUserID();
 
@@ -209,6 +210,18 @@ namespace SaintMarysClinicMedicalManagementSystem
             employeeToUpdate.Specialty = employee.Specialty;
             DB.SaveChanges();
         }
+        public void UpdateAppointment(Appointment a)
+        {
+            Appointment appointmentToUpdate = DB.Appointments.Find(a.ApptID);
+            appointmentToUpdate.ApptDate = a.ApptDate;
+            appointmentToUpdate.ApptTime = a.ApptTime;
+            appointmentToUpdate.Description = a.Description;
+            appointmentToUpdate.Duration = a.Duration;
+            appointmentToUpdate.Verified = true;
+            appointmentToUpdate.PatientUserID = a.PatientUserID;
+            appointmentToUpdate.ProviderUserID = a.ProviderUserID;
+            DB.SaveChanges();
+        }
 
         public Nullable<UserTypes> ValidLogin(string email, string password)
         {
@@ -277,6 +290,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             }
             return providerUsers;
         }
+
     }
 
 }

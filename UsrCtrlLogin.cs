@@ -36,6 +36,7 @@ namespace SaintMarysClinicMedicalManagementSystem
                             break;
                         case 2:
                             FormMedStaffPortal formMedStaffPortal = new FormMedStaffPortal();
+                            formMedStaffPortal.CurrentLoggedInEmail = txtbxEmail.Text;
                             formMedStaffPortal.Show();
                             break;
                         case 3:

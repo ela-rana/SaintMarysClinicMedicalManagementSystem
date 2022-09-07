@@ -17,7 +17,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormSplash());
-            Application.Run(new FormAdminPortal());
+            Application.Run(new FormMedStaffPortal());
         }
     }
 }
