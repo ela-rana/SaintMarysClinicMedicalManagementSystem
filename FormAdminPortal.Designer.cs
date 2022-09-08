@@ -117,9 +117,9 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tbProfile.Controls.Add(this.lblPhone);
             this.tbProfile.Controls.Add(this.lblMiddleName);
             this.tbProfile.Controls.Add(this.lblLastName);
-            this.tbProfile.Location = new System.Drawing.Point(4, 28);
+            this.tbProfile.Location = new System.Drawing.Point(4, 26);
             this.tbProfile.Name = "tbProfile";
-            this.tbProfile.Size = new System.Drawing.Size(790, 481);
+            this.tbProfile.Size = new System.Drawing.Size(989, 556);
             this.tbProfile.TabIndex = 2;
             this.tbProfile.Text = "My Profile";
             this.tbProfile.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(177, 312);
+            this.btnSaveChanges.Location = new System.Drawing.Point(177, 353);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(150, 25);
             this.btnSaveChanges.TabIndex = 43;
@@ -163,7 +163,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.lblUpdateInstructions.AutoSize = true;
             this.lblUpdateInstructions.Font = new System.Drawing.Font("Papyrus", 9.25F, System.Drawing.FontStyle.Bold);
             this.lblUpdateInstructions.ForeColor = System.Drawing.Color.Crimson;
-            this.lblUpdateInstructions.Location = new System.Drawing.Point(69, 260);
+            this.lblUpdateInstructions.Location = new System.Drawing.Point(69, 301);
             this.lblUpdateInstructions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUpdateInstructions.Name = "lblUpdateInstructions";
             this.lblUpdateInstructions.Size = new System.Drawing.Size(552, 21);
@@ -173,7 +173,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(502, 91);
+            this.btnUpdate.Location = new System.Drawing.Point(656, 86);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(150, 25);
             this.btnUpdate.TabIndex = 41;
@@ -620,7 +620,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Font = new System.Drawing.Font("Harrington", 11.25F, System.Drawing.FontStyle.Bold);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAdminPortal";
             this.Text = "Saint Mary\'s Clinic - Admin Portal";
             this.Load += new System.EventHandler(this.FormAdminPortal_Load);

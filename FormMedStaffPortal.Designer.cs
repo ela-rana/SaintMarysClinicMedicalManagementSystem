@@ -77,6 +77,10 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.lblVitals = new System.Windows.Forms.Label();
             this.cmbxSelectPatient = new System.Windows.Forms.ComboBox();
             this.lblSelectPatient = new System.Windows.Forms.Label();
+            this.tbViewChart = new System.Windows.Forms.TabPage();
+            this.txtChartDisplay = new System.Windows.Forms.RichTextBox();
+            this.cmbxSelectViewPatient = new System.Windows.Forms.ComboBox();
+            this.lblSelectViewPatient = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tbProfile.SuspendLayout();
             this.tbViewAppointment.SuspendLayout();
@@ -84,6 +88,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.tbChart.SuspendLayout();
             this.grpChart.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tbViewChart.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogOut
@@ -100,9 +105,11 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             // tabControl1
             // 
+            this.tabControl1.CausesValidation = false;
             this.tabControl1.Controls.Add(this.tbProfile);
             this.tabControl1.Controls.Add(this.tbViewAppointment);
             this.tabControl1.Controls.Add(this.tbChart);
+            this.tabControl1.Controls.Add(this.tbViewChart);
             this.tabControl1.Location = new System.Drawing.Point(12, 44);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -136,17 +143,17 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxSSN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbxSSN.Enabled = false;
             this.txtbxSSN.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbxSSN.Location = new System.Drawing.Point(203, 170);
+            this.txtbxSSN.Location = new System.Drawing.Point(203, 120);
             this.txtbxSSN.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxSSN.Name = "txtbxSSN";
-            this.txtbxSSN.Size = new System.Drawing.Size(239, 23);
+            this.txtbxSSN.Size = new System.Drawing.Size(102, 23);
             this.txtbxSSN.TabIndex = 45;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 172);
+            this.label1.Location = new System.Drawing.Point(83, 122);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 17);
@@ -171,7 +178,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.lblUpdateInstructions.AutoSize = true;
             this.lblUpdateInstructions.Font = new System.Drawing.Font("Papyrus", 9.25F, System.Drawing.FontStyle.Bold);
             this.lblUpdateInstructions.ForeColor = System.Drawing.Color.Crimson;
-            this.lblUpdateInstructions.Location = new System.Drawing.Point(69, 260);
+            this.lblUpdateInstructions.Location = new System.Drawing.Point(69, 210);
             this.lblUpdateInstructions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUpdateInstructions.Name = "lblUpdateInstructions";
             this.lblUpdateInstructions.Size = new System.Drawing.Size(552, 21);
@@ -195,10 +202,10 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbxPhone.Enabled = false;
             this.txtbxPhone.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbxPhone.Location = new System.Drawing.Point(203, 142);
+            this.txtbxPhone.Location = new System.Drawing.Point(203, 92);
             this.txtbxPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxPhone.Name = "txtbxPhone";
-            this.txtbxPhone.Size = new System.Drawing.Size(239, 23);
+            this.txtbxPhone.Size = new System.Drawing.Size(102, 23);
             this.txtbxPhone.TabIndex = 29;
             // 
             // txtbxLastName
@@ -206,10 +213,10 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbxLastName.Enabled = false;
             this.txtbxLastName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbxLastName.Location = new System.Drawing.Point(203, 117);
+            this.txtbxLastName.Location = new System.Drawing.Point(203, 67);
             this.txtbxLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxLastName.Name = "txtbxLastName";
-            this.txtbxLastName.Size = new System.Drawing.Size(239, 23);
+            this.txtbxLastName.Size = new System.Drawing.Size(102, 23);
             this.txtbxLastName.TabIndex = 27;
             // 
             // txtbxMiddleName
@@ -217,10 +224,10 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxMiddleName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbxMiddleName.Enabled = false;
             this.txtbxMiddleName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbxMiddleName.Location = new System.Drawing.Point(203, 91);
+            this.txtbxMiddleName.Location = new System.Drawing.Point(203, 41);
             this.txtbxMiddleName.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxMiddleName.Name = "txtbxMiddleName";
-            this.txtbxMiddleName.Size = new System.Drawing.Size(239, 23);
+            this.txtbxMiddleName.Size = new System.Drawing.Size(102, 23);
             this.txtbxMiddleName.TabIndex = 26;
             // 
             // txtbxFirstName
@@ -228,17 +235,17 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.txtbxFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbxFirstName.Enabled = false;
             this.txtbxFirstName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbxFirstName.Location = new System.Drawing.Point(203, 64);
+            this.txtbxFirstName.Location = new System.Drawing.Point(203, 14);
             this.txtbxFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxFirstName.Name = "txtbxFirstName";
-            this.txtbxFirstName.Size = new System.Drawing.Size(239, 23);
+            this.txtbxFirstName.Size = new System.Drawing.Size(102, 23);
             this.txtbxFirstName.TabIndex = 25;
             // 
             // lblFirstName
             // 
             this.lblFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(83, 64);
+            this.lblFirstName.Location = new System.Drawing.Point(83, 14);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(88, 17);
@@ -249,7 +256,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.lblPhone.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(83, 142);
+            this.lblPhone.Location = new System.Drawing.Point(83, 92);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(55, 17);
@@ -260,7 +267,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.lblMiddleName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMiddleName.AutoSize = true;
-            this.lblMiddleName.Location = new System.Drawing.Point(83, 90);
+            this.lblMiddleName.Location = new System.Drawing.Point(83, 40);
             this.lblMiddleName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMiddleName.Name = "lblMiddleName";
             this.lblMiddleName.Size = new System.Drawing.Size(102, 17);
@@ -271,7 +278,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             // 
             this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(83, 117);
+            this.lblLastName.Location = new System.Drawing.Point(83, 67);
             this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(85, 17);
@@ -613,6 +620,46 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.lblSelectPatient.TabIndex = 0;
             this.lblSelectPatient.Text = "Select Patient to Chart On:";
             // 
+            // tbViewChart
+            // 
+            this.tbViewChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tbViewChart.Controls.Add(this.txtChartDisplay);
+            this.tbViewChart.Controls.Add(this.cmbxSelectViewPatient);
+            this.tbViewChart.Controls.Add(this.lblSelectViewPatient);
+            this.tbViewChart.Location = new System.Drawing.Point(4, 26);
+            this.tbViewChart.Name = "tbViewChart";
+            this.tbViewChart.Padding = new System.Windows.Forms.Padding(3);
+            this.tbViewChart.Size = new System.Drawing.Size(989, 556);
+            this.tbViewChart.TabIndex = 4;
+            this.tbViewChart.Text = "View Patient Charts";
+            // 
+            // txtChartDisplay
+            // 
+            this.txtChartDisplay.Location = new System.Drawing.Point(6, 54);
+            this.txtChartDisplay.Name = "txtChartDisplay";
+            this.txtChartDisplay.Size = new System.Drawing.Size(977, 496);
+            this.txtChartDisplay.TabIndex = 11;
+            this.txtChartDisplay.Text = "";
+            // 
+            // cmbxSelectViewPatient
+            // 
+            this.cmbxSelectViewPatient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxSelectViewPatient.FormattingEnabled = true;
+            this.cmbxSelectViewPatient.Location = new System.Drawing.Point(302, 12);
+            this.cmbxSelectViewPatient.Name = "cmbxSelectViewPatient";
+            this.cmbxSelectViewPatient.Size = new System.Drawing.Size(669, 25);
+            this.cmbxSelectViewPatient.TabIndex = 10;
+            this.cmbxSelectViewPatient.SelectedIndexChanged += new System.EventHandler(this.cmbxSelectViewPatient_SelectedIndexChanged);
+            // 
+            // lblSelectViewPatient
+            // 
+            this.lblSelectViewPatient.AutoSize = true;
+            this.lblSelectViewPatient.Location = new System.Drawing.Point(13, 15);
+            this.lblSelectViewPatient.Name = "lblSelectViewPatient";
+            this.lblSelectViewPatient.Size = new System.Drawing.Size(261, 17);
+            this.lblSelectViewPatient.TabIndex = 9;
+            this.lblSelectViewPatient.Text = "Select Patient to View Their Chart:\r\n";
+            // 
             // FormMedStaffPortal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
@@ -639,6 +686,8 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.grpChart.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tbViewChart.ResumeLayout(false);
+            this.tbViewChart.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -692,5 +741,9 @@ namespace SaintMarysClinicMedicalManagementSystem
         private System.Windows.Forms.Label lblO2;
         private System.Windows.Forms.Label lblTemp;
         private System.Windows.Forms.Label lblVitals;
+        private System.Windows.Forms.TabPage tbViewChart;
+        private System.Windows.Forms.ComboBox cmbxSelectViewPatient;
+        private System.Windows.Forms.Label lblSelectViewPatient;
+        private System.Windows.Forms.RichTextBox txtChartDisplay;
     }
 }

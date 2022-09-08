@@ -114,8 +114,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             {
                 mms.VerifyAppointment(apID);
                 MessageBox.Show("Appointment Verified");
-                dtgrdApptDisplay.DataSource = null;
-                dtgrdApptDisplay.DataSource = mms.GetAllAppointments();
+                RefreshGrid();
             }
             else
             {
@@ -212,6 +211,7 @@ namespace SaintMarysClinicMedicalManagementSystem
                 newAppt.ProviderUserID = Int32.Parse(txtbxProvider.Text);
                 mms.AddNewAppointment(newAppt);
                 MessageBox.Show("Appointment created");
+                RefreshGrid();
                 grpFields.Visible = false;
                 btnConfirmAdd.Visible = false;
                 btnCancelAdd.Visible = false;

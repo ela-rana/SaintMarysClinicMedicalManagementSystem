@@ -47,7 +47,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 28);
-            this.btnLogin.TabIndex = 2;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -124,7 +124,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.btnBack.Location = new System.Drawing.Point(0, -1);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(44, 26);
-            this.btnBack.TabIndex = 18;
+            this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -149,7 +149,7 @@ namespace SaintMarysClinicMedicalManagementSystem
             this.btnViewPassword.Margin = new System.Windows.Forms.Padding(0);
             this.btnViewPassword.Name = "btnViewPassword";
             this.btnViewPassword.Size = new System.Drawing.Size(43, 24);
-            this.btnViewPassword.TabIndex = 20;
+            this.btnViewPassword.TabIndex = 5;
             this.btnViewPassword.Text = "View\r\n";
             this.btnViewPassword.UseVisualStyleBackColor = false;
             this.btnViewPassword.Click += new System.EventHandler(this.btnViewPassword_Click);
